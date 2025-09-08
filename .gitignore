@@ -1,0 +1,60 @@
+# =============== Quarto / Jupyter Book ================
+# Ignore temporary build folders
+_build/
+.quarto/
+.publish/
+.cache/
+
+# Ignore temporary HTML (unless tracked intentionally)
+*.log
+*.aux
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# =============== Python / Anaconda ================
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment folders
+.venv/
+venv/
+ENV/
+env/
+conda-meta/
+*.conda
+*.lock
+
+# Environment files
+*.env
+
+# =============== Git / OS / Editor ================
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Editor folders
+.vscode/
+*.bak
+*.swp
+*.swo
+
+# =============== GitHub Pages =================
+# Do NOT ignore /docs if deploying to GitHub Pages from it!
+# docs/
+
+# You may want to ignore local PDFs or temp exports
+*.pdf
+
+/.quarto/
