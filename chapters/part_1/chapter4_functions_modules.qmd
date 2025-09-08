@@ -1,0 +1,165 @@
+# Functions and Modules in Python
+
+Functions and modules allow us to organize and reuse code effectively.  
+Instead of writing the same code again and again, we can wrap logic inside a **function** or use a **module** (a collection of functions).  
+
+In GIS scripting, functions help structure workflows (e.g., buffer → clip → calculate area), 
+while modules provide useful tools for different tasks (e.g., file management with `os`, GIS tools with `arcpy`).
+
+---
+
+## Defining Functions
+
+A **function** is a block of code that runs only when it is called.  
+Functions can:  
+
+- Take inputs (called **parameters**)  
+- Perform some operations  
+- Optionally return an output using the `return` statement  
+
+To define a function in Python, we use the **`def` keyword** followed by:  
+1. The function name  
+2. Parentheses `()` (with parameters inside, if any)  
+3. A colon `:`  
+4. An indented block of code (the function body)  
+
+**General syntax:**
+
+```{python}
+def function_name(parameters):
+    # code block
+    return result   # optional
+
+```
+
+## Defining Functions
+
+A **function** is a block of code that runs only when called. Functions can take inputs (parameters) and return outputs.
+
+### Example: A simple function
+```{python}
+# Simple function without parameters
+def say_hello():
+    print("Hello from Python!")
+
+say_hello()
+```
+
+### Example: Function with parameters and return value
+
+```{python}
+def add_numbers(a, b):
+    """This function takes two numbers and returns their sum."""
+    result = a + b
+    return result
+
+# Call the function with arguments
+print("Sum of 5 and 7 is:", add_numbers(5, 7))
+```
+
+
+### Example: Function with default parameters
+
+```{python}
+def greet(name="GIS Learner"):
+    """Greets the person with a default value if no name is provided."""
+    print("Welcome,", name)
+
+greet("Lakshmi")    # custom value
+greet()             # uses default value
+```
+
+---
+
+## Using Modules in Python
+
+A **module** is a file that contains Python code (functions, classes, variables) which you can use in your programs.  
+Instead of writing everything yourself, you can **import** modules to get additional functionality.
+
+### Importing a Module
+
+We use the **`import` keyword** to bring a module into our program.  
+You can:  
+- Import the whole module → `import os`  
+- Import with an alias → `import numpy as np`  
+- Import specific functions → `from math import sqrt`  
+
+
+### Example: The `os` Module (Operating System)
+
+The `os` module provides functions to interact with the operating system:  
+- Work with files and directories  
+- Join paths in a cross-platform way  
+- Check if files exist  
+
+```{python}
+import os
+
+path = "D:/GIS_Data/OSM/shape/roads.shp"
+
+print("File name:", os.path.basename(path))
+print("Directory:", os.path.dirname(path))
+print("Does file exist?", os.path.exists(path))
+```
+
+---
+
+## Importing ArcPy in Scripts
+
+ArcPy is a powerful library for GIS tasks in ArcGIS.  
+You can import it into your script like any other module.
+
+```{python}
+import arcpy
+
+# Check ArcPy version
+info = arcpy.GetInstallInfo()
+print("ArcPy Installed with ArcGIS Version:", info["Version"])
+```
+
+---
+
+## Example: A Simple Buffer Function
+
+Let’s create a function that performs a **buffer operation** on a shapefile.  
+
+```{python}
+import arcpy
+
+def buffer_features(input_fc, output_fc, distance):
+    """Creates a buffer around input features.
+    
+    Parameters:
+        input_fc (str): Input feature class (shapefile/FC)
+        output_fc (str): Output feature class path
+        distance (str): Buffer distance (e.g., "50 Meters")
+    """
+    arcpy.analysis.Buffer(input_fc, output_fc, distance)
+    print(f"Buffer created: {output_fc}")
+
+# Example usage (adjust file paths as needed)
+arcpy.env.workspace = r"D:/GIS_Data/OSM/shape"
+buffer_features("roads_utm44n.shp", "roads_buffer_1.shp", "50 Meters")
+```
+
+---
+
+## Summary
+
+In this chapter, we learned:  
+- How to define and use **functions**.  
+- How to use built-in modules like **os** and **sys**.  
+- How to import and use **ArcPy** in scripts.  
+- How to write a **buffer function** for automation.  
+
+---
+
+## Exercise
+
+Try the following tasks:  
+
+1. Write a function that calculates the area of a rectangle (length × width).  
+2. Use the `os` module to list all files in a folder of your choice.  
+3. Modify the buffer function to accept multiple shapefiles and create buffers for each one.  
+
+---

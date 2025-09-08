@@ -1,0 +1,71 @@
+project:
+  type: book
+  output-dir: docs
+  
+execute:
+  enabled: true
+  echo: true
+  warning: false
+  error: true    # stop the build if a cell errors
+
+book:
+  title: "arcpy" 
+  author: 
+    - name: Lakshmi Kantakumar
+      orcid: 0000-0002-8912-3853
+      email: lakshmikanthkumar@gmail.com
+      url: https://github.com/lakshmikantakumar
+      affiliations:
+      - name: Faculty of Topo & GIS, National Institute for Geo-informatics Science and Technology (NIGST), Survey of India
+        city: Hyderabad
+        country: India
+  date: today
+  description: "Lecture Notes Using Free and Open-Source Software"
+  site-url: https://lakshmikantakumar.github.io/arcpy/
+  repo-url: https://github.com/lakshmikantakumar/arcpy/
+
+  chapters:
+    - index.qmd
+#    - acknowledgement.qmd
+    
+    - part: "Part 1: Python Foundations for GIS"
+      chapters:
+        - chapters/part_1/chapter1_intro_python_gis.qmd
+        - chapters/part_1/chapter2_python_basics_refresher.qmd
+        - chapters/part_1/chapter3_control_structures.qmd
+        - chapters/part_1/chapter4_functions_modules.qmd
+        - chapters/part_1/chapter5_error_handling_exceptions.qmd
+   
+#    - part: "Part 2: Working with ArcPy"
+#      chapters:
+#        - chapters/part_2/chapter5_introduction_arcpy.qmd
+#        - chapters/part_2/chapter6_working_with_spatial_data.qmd
+#        - chapters/part_2/chapter7_attribute_table_operations.qmd
+
+#    - part: "part 3: Spatial Analysis with ArcPy"
+#      chapters:
+#        - chapters/part_3/chapter8_spatial_analysis_tools.qmd
+#        - chapters/part_3/chapter9_raster_analysis_arcpy.qmd
+#        - chapters/part_3/chapter10_automating_workflows.qmd
+
+      
+    #- part: "Contributions"
+    #  chapters:
+    #    - contributions.qmd
+   
+bibliography: references.bib
+csl: styles/apa-6th-edition.csl
+
+
+  
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true   # Enable numbering for HTML
+    code-fold: true
+    fig-cap-location: bottom
+    fig-num: true
+    css: styles/styles.css  # custom CSS file
+    citeproc: true
+

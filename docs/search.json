@@ -1,0 +1,474 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "arcpy",
+    "section": "",
+    "text": "Preface\nGeoinformatics is a multidisciplinary field that combines spatial data collection, management, analysis, and visualization. It brings together tools and methods from cartography, remote sensing, surveying, computer science, and data analysis to address problems related to land, water, environment, and infrastructure. As the amount of spatial data continues to increase, there is a need for efficient ways to manage and process this information.\nPython programming is widely used in scientific computing and is also integrated into Geoinformatics applications. In the ArcGIS Pro environment, Python—through the ArcPy site package, enables analysts and researchers to automate workflows, conduct spatial analysis, and extend existing functionality.\nThe objective of this course, Geospatial Analysis with Python in ArcGIS, is to provide learners with an introduction to Python programming and its application to Geoinformatics tasks. The material is organized to build understanding in a gradual way:\n\nPart 1: Python Foundations for Geoinformatics introduces the essentials of Python programming, including variables, control structures, functions, modules, and error handling.\n\nPart 2: Working with ArcPy explains how Python integrates with ArcGIS, focusing on geoprocessing tools, attribute table operations, spatial data handling, and raster analysis.\n\nPart 3: Applied Workflows presents examples of automation, spatial analysis, and task-oriented scripting.\n\nEach chapter includes examples, practice exercises, and Geoinformatics use cases to connect Python concepts with spatial data applications. By working through the material, learners will be able to:\n\nUnderstand the basics of Python programming in the context of Geoinformatics.\n\nUse ArcPy to carry out geoprocessing tasks.\n\nWrite scripts that process both vector and raster data.\n\nDevelop workflows to improve efficiency and reduce manual repetition.\n\nThe course is designed for students, professionals, and researchers with an interest in Geoinformatics who wish to enhance their technical skills. A general familiarity with ArcGIS software is helpful, but prior programming experience is not required.\nThese lecture notes aim to support learners in building a foundation in Python for Geoinformatics and in applying these skills to common tasks in ArcGIS Pro.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter1_intro_python_gis.html",
+    "href": "chapters/part_1/chapter1_intro_python_gis.html",
+    "title": "1  Introduction to Python for GIS",
+    "section": "",
+    "text": "1.1 Why Python for ArcGIS?\nPython is one of the most widely used programming languages in the world, and it plays a vital role in Geographic Information Systems (GIS). In ArcGIS, Python is the primary scripting language used to automate workflows, perform geospatial analysis, and extend ArcGIS functionality.\nThis chapter introduces Python in the context of GIS and provides the foundation you need to start writing Python scripts in ArcGIS.\nPython has become the scripting language of choice for ArcGIS because:\nArcGIS Pro comes with its own Python environment, which makes it easy to get started.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python for GIS</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter1_intro_python_gis.html#why-python-for-arcgis",
+    "href": "chapters/part_1/chapter1_intro_python_gis.html#why-python-for-arcgis",
+    "title": "1  Introduction to Python for GIS",
+    "section": "",
+    "text": "It is easy to learn and beginner-friendly.\n\nIt allows automation of repetitive tasks.\n\nIt provides access to ArcPy, a powerful library for geoprocessing.\n\nIt integrates well with other Python libraries (pandas, numpy, matplotlib).",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python for GIS</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter1_intro_python_gis.html#accessing-python-in-arcgis",
+    "href": "chapters/part_1/chapter1_intro_python_gis.html#accessing-python-in-arcgis",
+    "title": "1  Introduction to Python for GIS",
+    "section": "1.2 Accessing Python in ArcGIS",
+    "text": "1.2 Accessing Python in ArcGIS\nThere are several ways to use Python with ArcGIS:\n\nPython Window in ArcGIS Pro\n\nA built-in console for running quick Python commands.\n\nStandalone Python Scripts\n\nCreate .py files and run them inside ArcGIS Pro’s environment.\n\nJupyter Notebooks\n\nInteractive way of combining code, results, and explanations (what we use here).",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python for GIS</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter1_intro_python_gis.html#writing-your-first-python-script-in-arcgis",
+    "href": "chapters/part_1/chapter1_intro_python_gis.html#writing-your-first-python-script-in-arcgis",
+    "title": "1  Introduction to Python for GIS",
+    "section": "1.3 Writing Your First Python Script in ArcGIS",
+    "text": "1.3 Writing Your First Python Script in ArcGIS\nLet’s begin with a simple Python program to print a message.\n\n\nCode\nprint(\"Hello, GIS World!\")\n\n\nHello, GIS World!",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python for GIS</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter1_intro_python_gis.html#using-python-as-a-calculator",
+    "href": "chapters/part_1/chapter1_intro_python_gis.html#using-python-as-a-calculator",
+    "title": "1  Introduction to Python for GIS",
+    "section": "1.4 Using Python as a Calculator",
+    "text": "1.4 Using Python as a Calculator\nPython can also be used like a calculator:\n\n\nCode\na = 10\nb = 5\nsum_ab = a + b\nproduct_ab = a * b\n\nprint(\"Sum:\", sum_ab)\nprint(\"Product:\", product_ab)\n\n\nSum: 15\nProduct: 50",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python for GIS</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter1_intro_python_gis.html#hello-arcpy",
+    "href": "chapters/part_1/chapter1_intro_python_gis.html#hello-arcpy",
+    "title": "1  Introduction to Python for GIS",
+    "section": "1.5 Hello ArcPy",
+    "text": "1.5 Hello ArcPy\nTo connect Python with ArcGIS, we import the ArcPy module.\n\nNote: This code will only work inside the ArcGIS Pro Python environment.\n\n\n\nCode\nimport arcpy\n\n# Check ArcPy version\nprint(\"ArcPy is ready! Version:\", arcpy.GetInstallInfo()[\"Version\"])\n\n\nArcPy is ready! Version: 3.4",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python for GIS</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter1_intro_python_gis.html#example-list-feature-classes-in-a-folder",
+    "href": "chapters/part_1/chapter1_intro_python_gis.html#example-list-feature-classes-in-a-folder",
+    "title": "1  Introduction to Python for GIS",
+    "section": "1.6 Example: List Feature Classes in a Folder",
+    "text": "1.6 Example: List Feature Classes in a Folder\nLet’s try a small GIS-related script using ArcPy.\n\n\nCode\nimport arcpy\n\n# Set workspace (change path to your local GIS data folder)\narcpy.env.workspace = r\"D:\\GIS_Data\\OSM\\shape\"\n\n# List all feature classes\nfeature_classes = arcpy.ListFeatureClasses()\n\nprint(\"Feature Classes in workspace:\")\nfor fc in feature_classes:\n    print(\"-\", fc)\n\n\nFeature Classes in workspace:\n- buildings.shp\n- landuse.shp\n- natural.shp\n- places.shp\n- points.shp\n- railways.shp\n- roads.shp\n- roads_buffer.shp\n- roads_buffer_1.shp\n- roads_utm44n.shp\n- waterways.shp",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python for GIS</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter1_intro_python_gis.html#visual-guide-ways-to-use-python-in-arcgis",
+    "href": "chapters/part_1/chapter1_intro_python_gis.html#visual-guide-ways-to-use-python-in-arcgis",
+    "title": "1  Introduction to Python for GIS",
+    "section": "1.7 Visual Guide: Ways to Use Python in ArcGIS",
+    "text": "1.7 Visual Guide: Ways to Use Python in ArcGIS\n\n\nCode\nflowchart TD\n    A[\"Python Window (ArcGIS Pro)\"] --&gt; D[\"Use Python for quick tasks\"]\n    B[\"Standalone Scripts (.py)\"] --&gt; D\n    C[\"Notebooks (Jupyter / Quarto)\"] --&gt; D\n    D[\"Automate & Analyze GIS Data with ArcPy\"]\n\n\n\n\n\nflowchart TD\n    A[\"Python Window (ArcGIS Pro)\"] --&gt; D[\"Use Python for quick tasks\"]\n    B[\"Standalone Scripts (.py)\"] --&gt; D\n    C[\"Notebooks (Jupyter / Quarto)\"] --&gt; D\n    D[\"Automate & Analyze GIS Data with ArcPy\"]",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python for GIS</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter1_intro_python_gis.html#summary",
+    "href": "chapters/part_1/chapter1_intro_python_gis.html#summary",
+    "title": "1  Introduction to Python for GIS",
+    "section": "1.8 Summary",
+    "text": "1.8 Summary\nIn this chapter, we learned:\n- Why Python is important for ArcGIS.\n- Different ways to use Python in ArcGIS.\n- How to write a simple Python script.\n- How to connect to ArcPy and list GIS datasets.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python for GIS</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter1_intro_python_gis.html#exercise",
+    "href": "chapters/part_1/chapter1_intro_python_gis.html#exercise",
+    "title": "1  Introduction to Python for GIS",
+    "section": "1.9 Exercise",
+    "text": "1.9 Exercise\nTry the following tasks on your own:\n\nWrite a Python script that multiplies two numbers and prints the result.\n\nModify the ArcPy script above to set your own folder path and list feature classes.\n\nRun the arcpy.GetInstallInfo() command and note down your ArcGIS version.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python for GIS</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter2_python_basics_refresher.html",
+    "href": "chapters/part_1/chapter2_python_basics_refresher.html",
+    "title": "2  Python Basics",
+    "section": "",
+    "text": "2.1 Variables and Data Types\nIn this chapter, we will review the basic Python concepts needed for GIS scripting.\nUnderstanding these fundamentals will help you write more effective scripts in ArcGIS.\nA variable is a named storage that holds data in memory, which can be used and modified later.\nIn Python, variables are created when you assign a value using the = operator.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Python Basics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter2_python_basics_refresher.html#variables-and-data-types",
+    "href": "chapters/part_1/chapter2_python_basics_refresher.html#variables-and-data-types",
+    "title": "2  Python Basics",
+    "section": "",
+    "text": "2.1.1 Rules for variable names\n\nMust start with a letter or underscore (_)\n\nCannot start with a number\n\nCan only contain letters, numbers, and underscores\n\nCase-sensitive (Name, name, and NAME are different variables)\n\n\n\n\n2.1.2 Common Python Data Types\n\nint (Integer) → whole numbers (e.g., 10, -5, 2025)\n\nfloat (Floating Point) → decimal numbers (e.g., 3.14, -0.5)\n\nstr (String) → text data (e.g., \"Hello GIS\", 'ArcPy')\n\nlist → ordered collection of items (e.g., [1, 2, 3, \"ArcGIS\"])\ndict (Dictionary) → key-value pairs (e.g., {\"name\": \"India\", \"population\": 1400})\nbool (Boolean) → True/False values (e.g., True, False)\n\n\n\n\n2.1.3 Example: Declaring Variables\n\n\nCode\n# Integer\ninteger_num = 10\n\n# Float\ndecimal_num = 3.14\n\n# String\ntext_value = \"Hello GIS\"\n\n# Boolean\nis_active = True\n\n# List\nmy_list = [1, 2, 3, \"ArcGIS\"]\n\n# Dictionary\nmy_dict = {\"name\": \"India\", \"population\": 1400}\n\nprint(integer_num, type(integer_num))\nprint(decimal_num, type(decimal_num))\nprint(text_value, type(text_value))\nprint(is_active, type(is_active))\nprint(my_list, type(my_list))\nprint(my_dict, type(my_dict))\n\n\n10 &lt;class 'int'&gt;\n3.14 &lt;class 'float'&gt;\nHello GIS &lt;class 'str'&gt;\nTrue &lt;class 'bool'&gt;\n[1, 2, 3, 'ArcGIS'] &lt;class 'list'&gt;\n{'name': 'India', 'population': 1400} &lt;class 'dict'&gt;",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Python Basics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter2_python_basics_refresher.html#operators-and-expressions",
+    "href": "chapters/part_1/chapter2_python_basics_refresher.html#operators-and-expressions",
+    "title": "2  Python Basics",
+    "section": "2.2 Operators and Expressions",
+    "text": "2.2 Operators and Expressions\nOperators allow us to perform operations on variables and values.\n\nArithmetic Operators: +, -, *, /, //, %, **\n\nComparison Operators: ==, !=, &lt;, &gt;, &lt;=, &gt;=\n\nLogical Operators: and, or, not\n\n\n\nCode\na = 15\nb = 4\n\nprint(\"Addition:\", a + b)\nprint(\"Division:\", a / b)\nprint(\"Floor Division:\", a // b)\nprint(\"Exponent:\", a ** b)\n\nprint(\"Equal?\", a == b)\nprint(\"Greater?\", a &gt; b)\nprint(\"Logical AND:\", a &gt; 10 and b &lt; 10)\n\n\nAddition: 19\nDivision: 3.75\nFloor Division: 3\nExponent: 50625\nEqual? False\nGreater? True\nLogical AND: True",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Python Basics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter2_python_basics_refresher.html#inputoutput-and-simple-programs",
+    "href": "chapters/part_1/chapter2_python_basics_refresher.html#inputoutput-and-simple-programs",
+    "title": "2  Python Basics",
+    "section": "2.3 Input/Output and Simple Programs",
+    "text": "2.3 Input/Output and Simple Programs\nIn interactive Python (like IDLE or terminal), you can take input with input().\n\n\nCode\n# Example: calculate area of a rectangle\n# (In a real script, use: length = float(input(\"Enter length: \")))\n\nlength = 10.0   # pretend the user typed 10\nwidth = 5.0     # pretend the user typed 5\n\narea = length * width\nprint(\"The area of rectangle is:\", area)\n\n\nThe area of rectangle is: 50.0",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Python Basics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter2_python_basics_refresher.html#working-with-strings",
+    "href": "chapters/part_1/chapter2_python_basics_refresher.html#working-with-strings",
+    "title": "2  Python Basics",
+    "section": "2.4 Working with Strings",
+    "text": "2.4 Working with Strings\nStrings are important in GIS because we often work with file paths, names, and attribute data.\n\n\nCode\n# String operations\npath = \"D:/GIS_Data/OSM/shape/roads.shp\"\n\nprint(\"Length of string:\", len(path))\nprint(\"Uppercase:\", path.upper())\nprint(\"Does it end with .shp?\", path.endswith(\".shp\"))\nprint(\"Replace extension:\", path.replace(\".shp\", \".geojson\"))\n\n# Splitting file path\nparts = path.split(\"\\\\\")\nprint(\"Folder structure:\", parts)\n\n\nLength of string: 31\nUppercase: D:/GIS_DATA/OSM/SHAPE/ROADS.SHP\nDoes it end with .shp? True\nReplace extension: D:/GIS_Data/OSM/shape/roads.geojson\nFolder structure: ['D:/GIS_Data/OSM/shape/roads.shp']",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Python Basics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter2_python_basics_refresher.html#summary",
+    "href": "chapters/part_1/chapter2_python_basics_refresher.html#summary",
+    "title": "2  Python Basics",
+    "section": "2.5 Summary",
+    "text": "2.5 Summary\nIn this chapter, we reviewed:\n- Variables and common data types in Python.\n- Basic operators and expressions.\n- Simple input/output programs.\n- String operations useful for GIS tasks.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Python Basics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter2_python_basics_refresher.html#exercise",
+    "href": "chapters/part_1/chapter2_python_basics_refresher.html#exercise",
+    "title": "2  Python Basics",
+    "section": "2.6 Exercise",
+    "text": "2.6 Exercise\nTry the following tasks:\n\nCreate a dictionary with details of your city (name, population, state).\n\nWrite a program that asks the user for two numbers and prints their sum and product.\n\nModify a file path string to change the extension from .tif to .jpg.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Python Basics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter3_control_structures.html",
+    "href": "chapters/part_1/chapter3_control_structures.html",
+    "title": "3  Control Structures in Python",
+    "section": "",
+    "text": "3.1 If-Else Conditions\nControl structures are used to control the flow of a program.\nIn this chapter, we will learn about conditional statements and loops, which are essential for automating GIS tasks.\nThe if-else statement is used to make decisions in a program.\nCode\nx = 20\n\nif x &gt; 10:\n    print(\"x is greater than 10\")\nelse:\n    print(\"x is 10 or less\")\n\n\nx is greater than 10\nWe can also use elif for multiple conditions.\nCode\nvalue = 0\n\nif value &gt; 0:\n    print(\"Positive number\")\nelif value &lt; 0:\n    print(\"Negative number\")\nelse:\n    print(\"Zero\")\n\n\nZero",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Structures in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter3_control_structures.html#loops-for-and-while",
+    "href": "chapters/part_1/chapter3_control_structures.html#loops-for-and-while",
+    "title": "3  Control Structures in Python",
+    "section": "3.2 Loops: For and While",
+    "text": "3.2 Loops: For and While\nLoops help us repeat a block of code multiple times.\n\n3.2.1 For Loop\nA for loop iterates over a sequence (list, range, string, etc.) and executes code for each item.\n\n\nCode\n# Print numbers 1 to 5\nfor i in range(1, 6):\n    print(\"Number:\", i)\n\n\nNumber: 1\nNumber: 2\nNumber: 3\nNumber: 4\nNumber: 5\n\n\n\n\n3.2.2 While Loop\nA while loop executes code as long as a given condition is True.\n\n\nCode\n# Print numbers until condition is met\nn = 1\nwhile n &lt;= 5:\n    print(\"n =\", n)\n    n += 1\n\n\nn = 1\nn = 2\nn = 3\nn = 4\nn = 5",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Structures in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter3_control_structures.html#iterating-over-lists-and-dictionaries",
+    "href": "chapters/part_1/chapter3_control_structures.html#iterating-over-lists-and-dictionaries",
+    "title": "3  Control Structures in Python",
+    "section": "3.3 Iterating Over Lists and Dictionaries",
+    "text": "3.3 Iterating Over Lists and Dictionaries\nWe often need to loop through collections of data.\n\n3.3.1 Looping Over a List\n\n\nCode\nlayers = [\"roads.shp\", \"rivers.shp\", \"villages.shp\"]\n\nfor layer in layers:\n    print(\"Processing:\", layer)\n\n\nProcessing: roads.shp\nProcessing: rivers.shp\nProcessing: villages.shp\n\n\n\n\n3.3.2 Looping Over a Dictionary\n\n\nCode\ncity = {\"name\": \"Delhi\", \"population\": 19000000, \"country\": \"India\"}\n\nfor key, value in city.items():\n    print(key, \":\", value)\n\n\nname : Delhi\npopulation : 19000000\ncountry : India",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Structures in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter3_control_structures.html#practical-example-looping-over-shapefile-names-in-a-folder",
+    "href": "chapters/part_1/chapter3_control_structures.html#practical-example-looping-over-shapefile-names-in-a-folder",
+    "title": "3  Control Structures in Python",
+    "section": "3.4 Practical Example: Looping Over Shapefile Names in a Folder",
+    "text": "3.4 Practical Example: Looping Over Shapefile Names in a Folder\nIn GIS automation, we often need to process multiple shapefiles.\nThis example demonstrates looping through shapefiles using ArcPy.\n\n\nCode\nimport arcpy\n\n# Set workspace folder containing shapefiles\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\n# List all shapefiles in the folder\nshapefiles = arcpy.ListFeatureClasses()\n\nfor shp in shapefiles:\n    print(\"Shapefile found:\", shp)\n    # Example: describe each shapefile\n    desc = arcpy.Describe(shp)\n    print(\" - Shape Type:\", desc.shapeType)\n    print(\" - Feature Count:\", arcpy.GetCount_management(shp))\n\n\nShapefile found: buildings.shp\n - Shape Type: Polygon\n - Feature Count: 19884\nShapefile found: landuse.shp\n - Shape Type: Polygon\n - Feature Count: 43\nShapefile found: natural.shp\n - Shape Type: Polygon\n - Feature Count: 16\nShapefile found: places.shp\n - Shape Type: Point\n - Feature Count: 47\nShapefile found: points.shp\n - Shape Type: Point\n - Feature Count: 344\nShapefile found: railways.shp\n - Shape Type: Polyline\n - Feature Count: 84\nShapefile found: roads.shp\n - Shape Type: Polyline\n - Feature Count: 2826\nShapefile found: roads_utm44n.shp\n - Shape Type: Polyline\n - Feature Count: 2826\nShapefile found: waterways.shp\n - Shape Type: Polyline\n - Feature Count: 18",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Structures in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter3_control_structures.html#summary",
+    "href": "chapters/part_1/chapter3_control_structures.html#summary",
+    "title": "3  Control Structures in Python",
+    "section": "3.5 Summary",
+    "text": "3.5 Summary\nIn this chapter, we learned:\n- How to use if-else conditions.\n- How to write for and while loops.\n- How to iterate through lists and dictionaries.\n- A practical example of looping through shapefiles in a folder.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Structures in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter3_control_structures.html#exercise",
+    "href": "chapters/part_1/chapter3_control_structures.html#exercise",
+    "title": "3  Control Structures in Python",
+    "section": "3.6 Exercise",
+    "text": "3.6 Exercise\nTry the following tasks:\n\nWrite a program that checks whether a number entered by the user is even or odd.\n\nCreate a list of five file names and use a loop to print each one.\n\nModify the ArcPy script to print only polygon shapefiles from a folder.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Structures in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter4_functions_modules.html",
+    "href": "chapters/part_1/chapter4_functions_modules.html",
+    "title": "4  Functions and Modules in Python",
+    "section": "",
+    "text": "4.1 Defining Functions\nFunctions and modules allow us to organize and reuse code effectively.\nInstead of writing the same code again and again, we can wrap logic inside a function or use a module (a collection of functions).\nIn GIS scripting, functions help structure workflows (e.g., buffer → clip → calculate area), while modules provide useful tools for different tasks (e.g., file management with os, GIS tools with arcpy).\nA function is a block of code that runs only when it is called.\nFunctions can:\nTo define a function in Python, we use the def keyword followed by:\n1. The function name\n2. Parentheses () (with parameters inside, if any)\n3. A colon :\n4. An indented block of code (the function body)\nGeneral syntax:\nCode\ndef function_name(parameters):\n    # code block\n    return result   # optional",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Functions and Modules in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter4_functions_modules.html#defining-functions",
+    "href": "chapters/part_1/chapter4_functions_modules.html#defining-functions",
+    "title": "4  Functions and Modules in Python",
+    "section": "",
+    "text": "Take inputs (called parameters)\n\nPerform some operations\n\nOptionally return an output using the return statement",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Functions and Modules in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter4_functions_modules.html#defining-functions-1",
+    "href": "chapters/part_1/chapter4_functions_modules.html#defining-functions-1",
+    "title": "4  Functions and Modules in Python",
+    "section": "4.2 Defining Functions",
+    "text": "4.2 Defining Functions\nA function is a block of code that runs only when called. Functions can take inputs (parameters) and return outputs.\n\n4.2.1 Example: A simple function\n\n\nCode\n# Simple function without parameters\ndef say_hello():\n    print(\"Hello from Python!\")\n\nsay_hello()\n\n\nHello from Python!\n\n\n\n\n4.2.2 Example: Function with parameters and return value\n\n\nCode\ndef add_numbers(a, b):\n    \"\"\"This function takes two numbers and returns their sum.\"\"\"\n    result = a + b\n    return result\n\n# Call the function with arguments\nprint(\"Sum of 5 and 7 is:\", add_numbers(5, 7))\n\n\nSum of 5 and 7 is: 12\n\n\n\n\n4.2.3 Example: Function with default parameters\n\n\nCode\ndef greet(name=\"GIS Learner\"):\n    \"\"\"Greets the person with a default value if no name is provided.\"\"\"\n    print(\"Welcome,\", name)\n\ngreet(\"Lakshmi\")    # custom value\ngreet()             # uses default value\n\n\nWelcome, Lakshmi\nWelcome, GIS Learner",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Functions and Modules in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter4_functions_modules.html#using-modules-in-python",
+    "href": "chapters/part_1/chapter4_functions_modules.html#using-modules-in-python",
+    "title": "4  Functions and Modules in Python",
+    "section": "4.3 Using Modules in Python",
+    "text": "4.3 Using Modules in Python\nA module is a file that contains Python code (functions, classes, variables) which you can use in your programs.\nInstead of writing everything yourself, you can import modules to get additional functionality.\n\n4.3.1 Importing a Module\nWe use the import keyword to bring a module into our program.\nYou can:\n- Import the whole module → import os\n- Import with an alias → import numpy as np\n- Import specific functions → from math import sqrt\n\n\n4.3.2 Example: The os Module (Operating System)\nThe os module provides functions to interact with the operating system:\n- Work with files and directories\n- Join paths in a cross-platform way\n- Check if files exist\n\n\nCode\nimport os\n\npath = \"D:/GIS_Data/OSM/shape/roads.shp\"\n\nprint(\"File name:\", os.path.basename(path))\nprint(\"Directory:\", os.path.dirname(path))\nprint(\"Does file exist?\", os.path.exists(path))\n\n\nFile name: roads.shp\nDirectory: D:/GIS_Data/OSM/shape\nDoes file exist? True",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Functions and Modules in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter4_functions_modules.html#importing-arcpy-in-scripts",
+    "href": "chapters/part_1/chapter4_functions_modules.html#importing-arcpy-in-scripts",
+    "title": "4  Functions and Modules in Python",
+    "section": "4.4 Importing ArcPy in Scripts",
+    "text": "4.4 Importing ArcPy in Scripts\nArcPy is a powerful library for GIS tasks in ArcGIS.\nYou can import it into your script like any other module.\n\n\nCode\nimport arcpy\n\n# Check ArcPy version\ninfo = arcpy.GetInstallInfo()\nprint(\"ArcPy Installed with ArcGIS Version:\", info[\"Version\"])\n\n\nArcPy Installed with ArcGIS Version: 3.4",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Functions and Modules in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter4_functions_modules.html#example-a-simple-buffer-function",
+    "href": "chapters/part_1/chapter4_functions_modules.html#example-a-simple-buffer-function",
+    "title": "4  Functions and Modules in Python",
+    "section": "4.5 Example: A Simple Buffer Function",
+    "text": "4.5 Example: A Simple Buffer Function\nLet’s create a function that performs a buffer operation on a shapefile.\n\n\nCode\nimport arcpy\n\ndef buffer_features(input_fc, output_fc, distance):\n    \"\"\"Creates a buffer around input features.\n    \n    Parameters:\n        input_fc (str): Input feature class (shapefile/FC)\n        output_fc (str): Output feature class path\n        distance (str): Buffer distance (e.g., \"50 Meters\")\n    \"\"\"\n    arcpy.analysis.Buffer(input_fc, output_fc, distance)\n    print(f\"Buffer created: {output_fc}\")\n\n# Example usage (adjust file paths as needed)\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\nbuffer_features(\"roads_utm44n.shp\", \"roads_buffer_1.shp\", \"50 Meters\")\n\n\nBuffer created: roads_buffer_1.shp",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Functions and Modules in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter4_functions_modules.html#summary",
+    "href": "chapters/part_1/chapter4_functions_modules.html#summary",
+    "title": "4  Functions and Modules in Python",
+    "section": "4.6 Summary",
+    "text": "4.6 Summary\nIn this chapter, we learned:\n- How to define and use functions.\n- How to use built-in modules like os and sys.\n- How to import and use ArcPy in scripts.\n- How to write a buffer function for automation.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Functions and Modules in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter4_functions_modules.html#exercise",
+    "href": "chapters/part_1/chapter4_functions_modules.html#exercise",
+    "title": "4  Functions and Modules in Python",
+    "section": "4.7 Exercise",
+    "text": "4.7 Exercise\nTry the following tasks:\n\nWrite a function that calculates the area of a rectangle (length × width).\n\nUse the os module to list all files in a folder of your choice.\n\nModify the buffer function to accept multiple shapefiles and create buffers for each one.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Functions and Modules in Python</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter5_error_handling_exceptions.html",
+    "href": "chapters/part_1/chapter5_error_handling_exceptions.html",
+    "title": "5  Error Handling and Exceptions",
+    "section": "",
+    "text": "5.1 What is an Exception?\nWhen writing Python scripts, errors are inevitable. For example, a file might be missing, a dataset may not load correctly, or a user may type the wrong parameter.\nPython provides a mechanism called exceptions to handle such errors gracefully instead of letting the program crash.\nIn GIS scripting with ArcPy, error handling is especially important because geoprocessing tools often fail if inputs are invalid or if files already exist.\nAn exception is an error that occurs during program execution.\nCommon Python exceptions include:",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter5_error_handling_exceptions.html#what-is-an-exception",
+    "href": "chapters/part_1/chapter5_error_handling_exceptions.html#what-is-an-exception",
+    "title": "5  Error Handling and Exceptions",
+    "section": "",
+    "text": "FileNotFoundError → File does not exist\n\nZeroDivisionError → Division by zero\n\nValueError → Wrong value or data type\n\nTypeError → Wrong data type in operation\n\narcpy.ExecuteError → ArcPy tool execution failed",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter5_error_handling_exceptions.html#the-tryexcept-block",
+    "href": "chapters/part_1/chapter5_error_handling_exceptions.html#the-tryexcept-block",
+    "title": "5  Error Handling and Exceptions",
+    "section": "5.2 The try–except Block",
+    "text": "5.2 The try–except Block\nWe can use a try–except block to catch and handle exceptions.\n\n\nCode\ntry:\n    x = 10 / 0   # This will cause ZeroDivisionError\nexcept ZeroDivisionError:\n    print(\"You cannot divide by zero!\")\n\n\nYou cannot divide by zero!",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter5_error_handling_exceptions.html#handling-multiple-exceptions",
+    "href": "chapters/part_1/chapter5_error_handling_exceptions.html#handling-multiple-exceptions",
+    "title": "5  Error Handling and Exceptions",
+    "section": "5.3 Handling Multiple Exceptions",
+    "text": "5.3 Handling Multiple Exceptions\nWe can catch different exceptions with multiple except blocks.\n\n\nCode\ntry:\n    number = int(\"abc\")   # This will cause ValueError\nexcept ValueError:\n    print(\"Invalid number!\")\nexcept TypeError:\n    print(\"Type error occurred!\")\n\n\nInvalid number!",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter5_error_handling_exceptions.html#using-finally",
+    "href": "chapters/part_1/chapter5_error_handling_exceptions.html#using-finally",
+    "title": "5  Error Handling and Exceptions",
+    "section": "5.4 Using finally",
+    "text": "5.4 Using finally\nThe finally block always runs, whether an error occurred or not.\nIt is useful for cleanup (closing files, releasing resources, etc.).\n\n\nCode\ntry:\n    file = open(\"data.txt\")\n    content = file.read()\nexcept FileNotFoundError:\n    print(\"File not found!\")\nfinally:\n    print(\"This block always executes.\")\n\n\nFile not found!\nThis block always executes.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter5_error_handling_exceptions.html#raising-exceptions",
+    "href": "chapters/part_1/chapter5_error_handling_exceptions.html#raising-exceptions",
+    "title": "5  Error Handling and Exceptions",
+    "section": "5.5 Raising Exceptions",
+    "text": "5.5 Raising Exceptions\nSometimes we want to raise an exception intentionally if something is wrong.\n\n\nCode\ndef calculate_area(length, width):\n    if length &lt;= 0 or width &lt;= 0:\n        raise ValueError(\"Length and width must be positive numbers\")\n    return length * width\n\n# Uncomment below to test\n# print(calculate_area(-5, 10))",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter5_error_handling_exceptions.html#error-handling-in-arcpy",
+    "href": "chapters/part_1/chapter5_error_handling_exceptions.html#error-handling-in-arcpy",
+    "title": "5  Error Handling and Exceptions",
+    "section": "5.6 Error Handling in ArcPy",
+    "text": "5.6 Error Handling in ArcPy\nArcPy provides a special exception called arcpy.ExecuteError, which is raised when a geoprocessing tool fails.\n\n\nCode\nimport arcpy\n\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\ntry:\n    # Try running a buffer on a non-existent dataset\n    arcpy.Buffer_analysis(\"non_existent.shp\", \"output.shp\", \"50 Meters\")\nexcept arcpy.ExecuteError:\n    print(\"ArcPy tool failed:\", arcpy.GetMessages(2))  # Get error messages\nexcept Exception as e:\n    print(\"Unexpected error:\", e)\n\n\nArcPy tool failed: Failed to execute. Parameters are not valid.\nERROR 000732: Input Features: Dataset non_existent.shp does not exist or is not supported\nFailed to execute (Buffer).",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter5_error_handling_exceptions.html#practical-example-safe-buffer-script",
+    "href": "chapters/part_1/chapter5_error_handling_exceptions.html#practical-example-safe-buffer-script",
+    "title": "5  Error Handling and Exceptions",
+    "section": "5.7 Practical Example: Safe Buffer Script",
+    "text": "5.7 Practical Example: Safe Buffer Script\n\n\nCode\nimport arcpy\n\ndef safe_buffer(input_fc, output_fc, distance):\n    try:\n        arcpy.Buffer_analysis(input_fc, output_fc, distance)\n        print(f\"Buffer created: {output_fc}\")\n    except arcpy.ExecuteError:\n        print(\"Buffer tool failed:\", arcpy.GetMessages(2))\n    except Exception as e:\n        print(\"Unexpected error:\", e)\n\n# Example usage\nsafe_buffer(\"roads.shp\", \"roads_buffer.shp\", \"50 Meters\")\n\n\nBuffer created: roads_buffer.shp",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter5_error_handling_exceptions.html#common-exceptions-reference-table",
+    "href": "chapters/part_1/chapter5_error_handling_exceptions.html#common-exceptions-reference-table",
+    "title": "5  Error Handling and Exceptions",
+    "section": "5.8 Common Exceptions Reference Table",
+    "text": "5.8 Common Exceptions Reference Table\n\n\n\n\n\n\n\n\nException Type\nDescription\nGIS/ArcPy Example\n\n\n\n\nFileNotFoundError\nFile or directory not found\nTrying to open a missing shapefile\n\n\nPermissionError\nNo permission to read/write\nAttempting to overwrite a locked file\n\n\nZeroDivisionError\nDivision by zero\nCalculating density with area = 0\n\n\nValueError\nWrong value or type\nPassing a string instead of a number\n\n\nTypeError\nOperation on wrong type\nAdding a string and an integer\n\n\nIndexError\nIndex out of range\nAccessing a list element that does not exist\n\n\nKeyError\nKey not found in dictionary\nAccessing a missing field in a dict\n\n\nMemoryError\nOut of memory\nProcessing very large raster in memory\n\n\narcpy.ExecuteError\nArcPy tool execution failed\nBuffer or Clip failed due to bad input\n\n\narcpy.ExecuteWarning\nTool ran with warnings\nProjection mismatch, empty outputs\n\n\n\n💡 Keep this table handy when debugging scripts. Most issues in Python or ArcPy will map to one of these exceptions.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter5_error_handling_exceptions.html#summary",
+    "href": "chapters/part_1/chapter5_error_handling_exceptions.html#summary",
+    "title": "5  Error Handling and Exceptions",
+    "section": "5.9 Summary",
+    "text": "5.9 Summary\nIn this chapter, we learned:\n- What exceptions are and why they occur.\n- How to use try–except–finally for error handling.\n- How to raise exceptions deliberately.\n- How to handle ArcPy errors with arcpy.ExecuteError.\n- A practical GIS example: a safe buffer script with error handling.\n- A quick reference table of common exceptions in Python and ArcPy.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_1/chapter5_error_handling_exceptions.html#exercises",
+    "href": "chapters/part_1/chapter5_error_handling_exceptions.html#exercises",
+    "title": "5  Error Handling and Exceptions",
+    "section": "5.10 Exercises",
+    "text": "5.10 Exercises\n\nWrite a function that divides two numbers and uses try–except to avoid division by zero.\n\nModify the safe buffer script to check if the output file already exists. If it does, print a warning instead of overwriting.\n\nUse arcpy.Clip_analysis() in a try–except block and handle both ArcPy errors and general exceptions.",
+    "crumbs": [
+      "Part 1: Python Foundations for GIS",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
+    ]
+  }
+]

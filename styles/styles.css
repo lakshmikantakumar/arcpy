@@ -1,0 +1,125 @@
+/* Ensure no indentation for the title and author block */
+h1 {
+  text-indent: 0 !important;  /* No indentation for the title */
+  margin-top: 0;              /* No extra space above the title */
+  margin-bottom: 1em;         /* Add space below the title */
+  font-size: 2em;             /* Adjust title font size as needed */
+  text-align: center;         /* Center align the title */
+}
+
+/* Author block styling */
+.author-info {
+  text-indent: 0 !important;  /* Ignore global text-indent styles */
+  margin-top: 1em;            /* Space above the author info */
+  margin-bottom: 1em;         /* Space below the author info */
+  font-size: 1.1em;           /* Slightly larger font size for author info */
+  line-height: 1.5;           /* Better line height for readability */
+  text-align: center;         /* Center align author info */
+}
+
+.author-info strong {
+  font-weight: bold;          /* Make author name bold */
+}
+
+.author-info a {
+  color: #007bff;             /* Link color for email/URLs */
+  text-decoration: none;      /* Remove underline from links */
+}
+
+.author-info a:hover {
+  text-decoration: underline; /* Underline links on hover */
+}
+
+/* Affiliations block styling */
+.affiliations {
+  text-indent: 0 !important;  /* Ignore global text-indent styles */
+  margin-top: 1em;            /* Space above the affiliation */
+  margin-bottom: 1em;         /* Space below the affiliation */
+  font-style: italic;         /* Italicize the affiliation text */
+  font-size: 1em;             /* Adjust font size for affiliation */
+  text-align: center;         /* Center align the affiliation */
+}
+
+.affiliations strong {
+  font-weight: bold;          /* Make the affiliation name bold */
+}
+/* Indent paragraphs */
+p {
+  margin-top: 0;              /* No extra space on top */
+  margin-bottom: 1em;         /* Space between paragraphs for readability */
+  text-align: justify;        /* Justify text for a cleaner layout */
+  text-align-last: left;      /* Ensure the last line is aligned to the left */
+}
+
+/* Prevent indent for the first paragraph after headings */
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
+  text-indent: 0;             /* Prevent indentation after headings */
+  margin-top: 1em;            /* Add space between heading and paragraph */
+  margin-bottom: 1em;         /* Space between paragraphs */
+}
+
+/* Citation tooltip styling */
+.citation {
+  border-bottom: 1px dotted #555;
+  cursor: help;
+  position: relative;
+}
+
+.citation a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.citation:hover::after {
+  content: attr(title);
+  position: absolute;
+  background: #fdfdfd;
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+  max-width: 300px;
+  white-space: normal;
+  z-index: 1000;
+  font-size: 0.85em;
+  color: #333;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+/* Table caption styling */
+table caption {
+  caption-side: top;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.9em;
+  padding: 5px 0;
+  color: #444;
+}
+
+/* Centering figure captions */
+.figure, figure {
+  text-align: center;
+}
+
+figcaption {
+  text-align: center;
+  font-style: italic;
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Hide references section (visibility: hidden) */
+#refs {
+  visibility: hidden; /* Makes the references invisible but keeps the space */
+  height: 0;          /* Optionally remove the height of the references section */
+  overflow: hidden;   /* Ensure no scrollbars if any content is hidden */
+}
+
+/* Force Mermaid diagrams to fit page width */
+.mermaid {
+  max-width: 90% !important;  /* keep within text margins */
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+

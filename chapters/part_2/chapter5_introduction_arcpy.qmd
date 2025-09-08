@@ -1,0 +1,110 @@
+---
+title: "Introduction to ArcPy"
+author: "Your Name"
+format: html
+jupyter: python3
+---
+
+# Introduction to ArcPy
+
+ArcPy is a Python site package provided with ArcGIS that allows you to automate geoprocessing tasks, perform spatial analysis, and manage GIS data.  
+In this chapter, we introduce the basics of ArcPy and how it integrates with ArcGIS.
+
+---
+
+## ArcPy Site Package
+
+ArcPy provides access to all geoprocessing tools available in ArcGIS.  
+With ArcPy, you can:  
+
+- Perform **spatial analysis** (buffer, clip, overlay, etc.)  
+- Automate **map production**  
+- Access and manipulate **GIS datasets**  
+- Build **custom workflows**  
+
+```{python}
+import arcpy
+
+# Check ArcPy installation details
+info = arcpy.GetInstallInfo()
+print("ArcPy Version:", info["Version"])
+print("Product Name:", info["ProductName"])
+```
+
+---
+
+## ArcGIS Geoprocessing Tools in Python
+
+Every geoprocessing tool in ArcGIS can be used in Python through ArcPy.  
+The naming convention is usually: `ToolName_toolboxAlias`.  
+
+Example: Buffer tool (`arcpy.Buffer_analysis`)  
+
+```{python}
+import arcpy
+
+# Example: create a buffer
+arcpy.env.workspace = r"C:\GIS_Data"
+arcpy.Buffer_analysis("roads.shp", "roads_buffer.shp", "1000 Meters")
+print("Buffer created successfully!")
+```
+
+---
+
+## The arcpy.env Workspace & Overwriting Outputs
+
+The **workspace** is the default folder or geodatabase where ArcPy looks for input data and stores output data.  
+The **overwriteOutput** environment setting allows you to overwrite existing outputs.  
+
+```{python}
+import arcpy
+
+# Set the workspace
+arcpy.env.workspace = r"C:\GIS_Data"
+
+# Allow overwriting of outputs
+arcpy.env.overwriteOutput = True
+
+# Example: dissolve polygons
+arcpy.Dissolve_management("villages.shp", "villages_dissolved.shp")
+print("Dissolve completed!")
+```
+
+---
+
+## Getting Tool Documentation
+
+ArcPy provides access to help/documentation for tools.  
+This is useful to understand input parameters and usage.  
+
+```{python}
+import arcpy
+
+# Get documentation for the Buffer tool
+help(arcpy.Buffer_analysis)
+
+# Another way: open ArcGIS Pro documentation
+# In ArcGIS Pro, search "Buffer (Analysis)" in Geoprocessing Pane
+```
+
+---
+
+## Summary
+
+In this chapter, we learned:  
+- What **ArcPy** is and why it is useful.  
+- How to use ArcGIS **geoprocessing tools** with Python.  
+- How to configure `arcpy.env` settings.  
+- How to access **tool documentation**.  
+
+---
+
+## Exercise
+
+Try the following tasks:  
+
+1. Use the `Clip_analysis` tool in ArcPy to clip one shapefile with another.  
+2. Write a script that dissolves a shapefile and saves the output with a new name.  
+3. Explore the documentation of any tool (e.g., `Intersect_analysis`) using `help()`.  
+
+---

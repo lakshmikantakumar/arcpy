@@ -1,0 +1,30 @@
+# Preface {.unnumbered}
+
+Geoinformatics is a multidisciplinary field that combines spatial data collection, management, analysis, and visualization. It brings together tools and methods from cartography, 
+remote sensing, surveying, computer science, and data analysis to address problems related to land, water, environment, and infrastructure. As the amount of spatial data continues to increase, 
+there is a need for efficient ways to manage and process this information.
+
+Python programming is widely used in scientific computing and is also integrated into Geoinformatics applications. In the ArcGIS Pro environment, Python through the **ArcPy site package**, 
+enables analysts and researchers to automate workflows, conduct spatial analysis, and extend existing functionality.
+
+The objective of this course, **Geospatial Analysis with Python in ArcGIS**, is to provide learners with an introduction to Python programming and its application to Geoinformatics tasks. 
+The material is organized to build understanding in a gradual way:
+
+- **Part 1: Python Foundations for Geoinformatics** introduces the essentials of Python programming, including variables, control structures, functions, modules, and error handling.  
+- **Part 2: Working with ArcPy** explains how Python integrates with ArcGIS, focusing on geoprocessing tools, attribute table operations, spatial data handling, and raster analysis.  
+- **Part 3: Applied Workflows** presents examples of automation, spatial analysis, and task-oriented scripting.  
+
+Each chapter includes examples, practice exercises, and Geoinformatics use cases to connect Python concepts with spatial data applications. By working through the material, learners will be able to:
+
+- Understand the basics of Python programming in the context of Geoinformatics.  
+- Use ArcPy to carry out geoprocessing tasks.  
+- Write scripts that process both vector and raster data.  
+- Develop workflows to improve efficiency and reduce manual repetition.  
+
+The course is designed for students, professionals, and researchers with an interest in Geoinformatics who wish to enhance their technical skills. 
+A general familiarity with ArcGIS software is helpful, but prior programming experience is not required.
+
+
+These lecture notes aim to support learners in building a foundation in Python for Geoinformatics and in applying these skills to common tasks in ArcGIS Pro.
+
+---

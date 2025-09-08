@@ -1,0 +1,130 @@
+# Control Structures in Python
+
+Control structures are used to control the flow of a program.  
+In this chapter, we will learn about conditional statements and loops, which are essential for automating GIS tasks.
+
+---
+
+## If-Else Conditions
+
+The **if-else** statement is used to make decisions in a program.
+
+```{python}
+x = 20
+
+if x > 10:
+    print("x is greater than 10")
+else:
+    print("x is 10 or less")
+```
+
+We can also use **elif** for multiple conditions.
+
+```{python}
+value = 0
+
+if value > 0:
+    print("Positive number")
+elif value < 0:
+    print("Negative number")
+else:
+    print("Zero")
+```
+
+---
+
+## Loops: For and While
+
+Loops help us repeat a block of code multiple times.
+
+### For Loop
+
+A **for loop** iterates over a sequence (list, range, string, etc.) and executes code for each item.
+
+```{python}
+# Print numbers 1 to 5
+for i in range(1, 6):
+    print("Number:", i)
+```
+
+### While Loop
+
+A **while loop** executes code as long as a given condition is True.
+
+```{python}
+# Print numbers until condition is met
+n = 1
+while n <= 5:
+    print("n =", n)
+    n += 1
+```
+
+---
+
+## Iterating Over Lists and Dictionaries
+
+We often need to loop through collections of data.
+
+### Looping Over a List
+
+```{python}
+layers = ["roads.shp", "rivers.shp", "villages.shp"]
+
+for layer in layers:
+    print("Processing:", layer)
+```
+
+### Looping Over a Dictionary
+
+```{python}
+city = {"name": "Delhi", "population": 19000000, "country": "India"}
+
+for key, value in city.items():
+    print(key, ":", value)
+```
+
+---
+
+## Practical Example: Looping Over Shapefile Names in a Folder
+
+In GIS automation, we often need to process multiple shapefiles.  
+This example demonstrates looping through shapefiles using ArcPy.
+
+```{python}
+import arcpy
+
+# Set workspace folder containing shapefiles
+arcpy.env.workspace = r"D:/GIS_Data/OSM/shape"
+
+# List all shapefiles in the folder
+shapefiles = arcpy.ListFeatureClasses()
+
+for shp in shapefiles:
+    print("Shapefile found:", shp)
+    # Example: describe each shapefile
+    desc = arcpy.Describe(shp)
+    print(" - Shape Type:", desc.shapeType)
+    print(" - Feature Count:", arcpy.GetCount_management(shp))
+```
+
+---
+
+## Summary
+
+In this chapter, we learned:  
+- How to use **if-else conditions**.  
+- How to write **for** and **while** loops.  
+- How to iterate through **lists** and **dictionaries**.  
+- A practical example of looping through shapefiles in a folder.  
+
+---
+
+## Exercise
+
+Try the following tasks:  
+
+1. Write a program that checks whether a number entered by the user is even or odd.  
+2. Create a list of five file names and use a loop to print each one.  
+3. Modify the ArcPy script to print only polygon shapefiles from a folder.  
+
+---

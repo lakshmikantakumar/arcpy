@@ -1,0 +1,140 @@
+---
+title: "Spatial Analysis Tools in ArcPy"
+author: "Your Name"
+format: html
+jupyter: python3
+---
+
+# Spatial Analysis Tools in ArcPy
+
+Spatial analysis is at the core of GIS, allowing us to derive new information from existing spatial data.  
+ArcPy provides access to many geoprocessing tools for spatial analysis.  
+
+In this chapter, we will cover commonly used vector analysis tools.
+
+---
+
+## Buffer
+
+The **Buffer** tool creates zones around features at a specified distance.
+
+```{python}
+import arcpy
+
+arcpy.env.workspace = r"C:\GIS_Data"
+arcpy.env.overwriteOutput = True
+
+# Buffer roads by 500 meters
+arcpy.Buffer_analysis("roads.shp", "roads_buffer.shp", "500 Meters")
+print("Buffer created successfully!")
+```
+
+---
+
+## Clip
+
+The **Clip** tool extracts input features that overlap with clip features.  
+
+```{python}
+import arcpy
+
+# Clip villages by district boundary
+arcpy.Clip_analysis("villages.shp", "district_boundary.shp", "villages_clipped.shp")
+print("Clip completed!")
+```
+
+---
+
+## Dissolve
+
+The **Dissolve** tool combines features based on a common attribute.
+
+```{python}
+import arcpy
+
+# Dissolve villages by district field
+arcpy.Dissolve_management("villages.shp", "villages_dissolved.shp", "DISTRICT")
+print("Dissolve completed!")
+```
+
+---
+
+## Union
+
+The **Union** tool combines features from multiple feature classes into one, keeping all attributes.
+
+```{python}
+import arcpy
+
+# Union of land use and soil shapefiles
+arcpy.Union_analysis(["landuse.shp", "soils.shp"], "landuse_soils_union.shp")
+print("Union completed!")
+```
+
+---
+
+## Overlay Analysis: Intersect
+
+The **Intersect** tool finds overlapping areas among input layers.  
+
+```{python}
+import arcpy
+
+# Intersect roads and rivers
+arcpy.Intersect_analysis(["roads.shp", "rivers.shp"], "roads_rivers_intersect.shp")
+print("Intersect completed!")
+```
+
+---
+
+## Overlay Analysis: Spatial Join
+
+The **Spatial Join** tool joins attributes from one feature class to another based on spatial relationships.  
+
+```{python}
+import arcpy
+
+# Join attributes of schools to villages based on location
+arcpy.SpatialJoin_analysis("villages.shp", "schools.shp", "villages_with_schools.shp")
+print("Spatial Join completed!")
+```
+
+---
+
+## Practical Example: Clip Roads by District Boundary
+
+```{python}
+import arcpy
+
+arcpy.env.workspace = r"C:\GIS_Data"
+arcpy.env.overwriteOutput = True
+
+# Clip roads by district boundary
+arcpy.Clip_analysis("roads.shp", "district_boundary.shp", "roads_clipped.shp")
+print("Roads clipped successfully!")
+```
+
+---
+
+## Summary
+
+In this chapter, we learned how to perform:  
+- **Buffer** analysis  
+- **Clip** analysis  
+- **Dissolve** operation  
+- **Union** operation  
+- **Overlay analysis** (Intersect and Spatial Join)  
+- A **practical example** of clipping roads by district boundary  
+
+---
+
+## Exercise
+
+Try the following tasks:  
+
+1. Buffer schools by 1000 meters and save the output.  
+2. Dissolve roads by road type (e.g., National Highway, State Highway).  
+3. Perform an intersect between land use and districts to analyze land use per district.  
+4. Use spatial join to count the number of wells in each village.  
+
+---

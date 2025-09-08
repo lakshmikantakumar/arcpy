@@ -1,0 +1,30 @@
+/* Hide references list completely */
+#refs {
+  display: none;
+}
+
+/* Tooltip-style citations */
+.citation {
+  border-bottom: 1px dotted #555;
+  cursor: help;
+  position: relative;
+}
+
+.citation a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.citation:hover::after {
+  content: attr(title);
+  position: absolute;
+  background: #fdfdfd;
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+  max-width: 300px;
+  white-space: normal;
+  z-index: 1000;
+  font-size: 0.85em;
+  color: #333;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+}

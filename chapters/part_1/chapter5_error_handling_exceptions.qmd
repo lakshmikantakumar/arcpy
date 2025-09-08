@@ -1,0 +1,160 @@
+# Error Handling and Exceptions
+
+When writing Python scripts, errors are inevitable. For example, a file might be missing, a dataset may not load correctly, or a user may type the wrong parameter.  
+Python provides a mechanism called **exceptions** to handle such errors gracefully instead of letting the program crash.
+
+In GIS scripting with ArcPy, error handling is especially important because geoprocessing tools often fail if inputs are invalid or if files already exist.
+
+---
+
+## What is an Exception?
+
+An **exception** is an error that occurs during program execution.  
+Common Python exceptions include:
+
+- `FileNotFoundError` → File does not exist  
+- `ZeroDivisionError` → Division by zero  
+- `ValueError` → Wrong value or data type  
+- `TypeError` → Wrong data type in operation  
+- `arcpy.ExecuteError` → ArcPy tool execution failed  
+
+---
+
+## The try–except Block
+
+We can use a **try–except** block to catch and handle exceptions.
+
+```{python}
+try:
+    x = 10 / 0   # This will cause ZeroDivisionError
+except ZeroDivisionError:
+    print("You cannot divide by zero!")
+```
+
+---
+
+## Handling Multiple Exceptions
+
+We can catch different exceptions with multiple `except` blocks.
+
+```{python}
+try:
+    number = int("abc")   # This will cause ValueError
+except ValueError:
+    print("Invalid number!")
+except TypeError:
+    print("Type error occurred!")
+```
+
+---
+
+## Using finally
+
+The `finally` block always runs, whether an error occurred or not.  
+It is useful for cleanup (closing files, releasing resources, etc.).
+
+```{python}
+try:
+    file = open("data.txt")
+    content = file.read()
+except FileNotFoundError:
+    print("File not found!")
+finally:
+    print("This block always executes.")
+```
+
+---
+
+## Raising Exceptions
+
+Sometimes we want to raise an exception intentionally if something is wrong.
+
+```{python}
+def calculate_area(length, width):
+    if length <= 0 or width <= 0:
+        raise ValueError("Length and width must be positive numbers")
+    return length * width
+
+# Uncomment below to test
+# print(calculate_area(-5, 10))
+```
+
+---
+
+## Error Handling in ArcPy
+
+ArcPy provides a special exception called **`arcpy.ExecuteError`**, which is raised when a geoprocessing tool fails.
+
+```{python}
+import arcpy
+
+arcpy.env.workspace = r"D:/GIS_Data/OSM/shape"
+try:
+    # Try running a buffer on a non-existent dataset
+    arcpy.Buffer_analysis("non_existent.shp", "output.shp", "50 Meters")
+except arcpy.ExecuteError:
+    print("ArcPy tool failed:", arcpy.GetMessages(2))  # Get error messages
+except Exception as e:
+    print("Unexpected error:", e)
+```
+
+---
+
+## Practical Example: Safe Buffer Script
+
+```{python}
+import arcpy
+
+def safe_buffer(input_fc, output_fc, distance):
+    try:
+        arcpy.Buffer_analysis(input_fc, output_fc, distance)
+        print(f"Buffer created: {output_fc}")
+    except arcpy.ExecuteError:
+        print("Buffer tool failed:", arcpy.GetMessages(2))
+    except Exception as e:
+        print("Unexpected error:", e)
+
+# Example usage
+safe_buffer("roads.shp", "roads_buffer.shp", "50 Meters")
+```
+
+---
+
+## Common Exceptions Reference Table
+
+| Exception Type        | Description | GIS/ArcPy Example |
+|-----------------------|-------------|-------------------|
+| `FileNotFoundError`   | File or directory not found | Trying to open a missing shapefile |
+| `PermissionError`     | No permission to read/write | Attempting to overwrite a locked file |
+| `ZeroDivisionError`   | Division by zero | Calculating density with area = 0 |
+| `ValueError`          | Wrong value or type | Passing a string instead of a number |
+| `TypeError`           | Operation on wrong type | Adding a string and an integer |
+| `IndexError`          | Index out of range | Accessing a list element that does not exist |
+| `KeyError`            | Key not found in dictionary | Accessing a missing field in a dict |
+| `MemoryError`         | Out of memory | Processing very large raster in memory |
+| `arcpy.ExecuteError`  | ArcPy tool execution failed | Buffer or Clip failed due to bad input |
+| `arcpy.ExecuteWarning`| Tool ran with warnings | Projection mismatch, empty outputs |
+
+💡 Keep this table handy when debugging scripts. Most issues in Python or ArcPy will map to one of these exceptions.
+
+---
+
+## Summary
+
+In this chapter, we learned:  
+- What exceptions are and why they occur.  
+- How to use **try–except–finally** for error handling.  
+- How to raise exceptions deliberately.  
+- How to handle **ArcPy errors** with `arcpy.ExecuteError`.  
+- A practical GIS example: a safe buffer script with error handling.  
+- A quick reference table of **common exceptions** in Python and ArcPy.  
+
+---
+
+## Exercises
+
+1. Write a function that divides two numbers and uses `try–except` to avoid division by zero.  
+2. Modify the safe buffer script to check if the output file already exists. If it does, print a warning instead of overwriting.  
+3. Use `arcpy.Clip_analysis()` in a try–except block and handle both ArcPy errors and general exceptions.  
+
+---

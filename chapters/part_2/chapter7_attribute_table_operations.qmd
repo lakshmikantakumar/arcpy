@@ -1,0 +1,142 @@
+---
+title: "Attribute Table Operations in ArcPy"
+author: "Your Name"
+format: html
+jupyter: python3
+---
+
+# Attribute Table Operations in ArcPy
+
+In this chapter, we will learn how to interact with attribute tables in ArcGIS using ArcPy.  
+ArcPy provides different types of **cursors** to read, update, and insert data into attribute tables.
+
+---
+
+## Reading Field Names
+
+We can list the fields of a feature class or shapefile using `arcpy.ListFields()`.
+
+```{python}
+import arcpy
+
+fc = "villages.shp"
+
+fields = arcpy.ListFields(fc)
+print("Fields in", fc, ":")
+for field in fields:
+    print("-", field.name, "(", field.type, ")")
+```
+
+---
+
+## Cursors in ArcPy
+
+ArcPy provides three main cursor types in the `arcpy.da` (data access) module:  
+
+- **SearchCursor** → read data  
+- **UpdateCursor** → update existing data  
+- **InsertCursor** → add new rows  
+
+---
+
+### SearchCursor Example
+
+```{python}
+import arcpy
+
+fc = "villages.shp"
+
+# Read values from NAME field
+with arcpy.da.SearchCursor(fc, ["NAME"]) as cursor:
+    for row in cursor:
+        print("Village Name:", row[0])
+```
+
+---
+
+### UpdateCursor Example
+
+```{python}
+import arcpy
+
+fc = "villages.shp"
+
+# Add new field if not exists
+if "Area_Ha" not in [f.name for f in arcpy.ListFields(fc)]:
+    arcpy.AddField_management(fc, "Area_Ha", "DOUBLE")
+
+# Update field values
+with arcpy.da.UpdateCursor(fc, ["SHAPE@", "Area_Ha"]) as cursor:
+    for row in cursor:
+        row[1] = row[0].area / 10000  # Convert m² to hectares
+        cursor.updateRow(row)
+
+print("Area field updated successfully!")
+```
+
+---
+
+### InsertCursor Example
+
+```{python}
+import arcpy
+
+fc = "new_points.shp"
+
+# Create a new shapefile if not exists (Point type)
+if not arcpy.Exists(fc):
+    arcpy.CreateFeatureclass_management(arcpy.env.workspace, "new_points.shp", "POINT")
+
+# Insert new points with attributes
+with arcpy.da.InsertCursor(fc, ["SHAPE@XY", "Name"]) as cursor:
+    cursor.insertRow(((77.2090, 28.6139), "Delhi"))
+    cursor.insertRow(((72.8777, 19.0760), "Mumbai"))
+
+print("Points inserted successfully!")
+```
+
+---
+
+## Practical Example: Update Attribute Values
+
+Let’s calculate population density for each polygon in a shapefile.
+
+```{python}
+import arcpy
+
+fc = "villages.shp"
+
+# Add new field for population density if not exists
+if "Pop_Density" not in [f.name for f in arcpy.ListFields(fc)]:
+    arcpy.AddField_management(fc, "Pop_Density", "DOUBLE")
+
+# Update density = Population / Area (ha)
+with arcpy.da.UpdateCursor(fc, ["POPULATION", "SHAPE@", "Pop_Density"]) as cursor:
+    for row in cursor:
+        if row[1].area > 0:
+            row[2] = row[0] / (row[1].area / 10000)
+            cursor.updateRow(row)
+
+print("Population density calculated successfully!")
+```
+
+---
+
+## Summary
+
+In this chapter, we learned:  
+- How to read **field names** using `arcpy.ListFields()`.  
+- How to use **SearchCursor**, **UpdateCursor**, and **InsertCursor**.  
+- A practical example of updating attribute values (population density).  
+
+---
+
+## Exercise
+
+Try the following tasks:  
+
+1. Use a SearchCursor to print the first 10 rows of the attribute table.  
+2. Add a new field `Perimeter` and calculate polygon perimeters using UpdateCursor.  
+3. Use an InsertCursor to add a new point feature with coordinates and a name attribute.  
+
+---

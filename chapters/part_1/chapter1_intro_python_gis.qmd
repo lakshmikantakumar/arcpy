@@ -1,0 +1,128 @@
+# Introduction to Python for GIS
+
+Python is one of the most widely used programming languages in the world, and it plays a vital role in Geographic Information Systems (GIS). In ArcGIS, Python is the primary scripting language used to automate workflows, perform geospatial analysis, and extend ArcGIS functionality.  
+
+This chapter introduces Python in the context of GIS and provides the foundation you need to start writing Python scripts in ArcGIS.
+
+---
+
+## Why Python for ArcGIS?
+
+Python has become the scripting language of choice for ArcGIS because:  
+
+- It is **easy to learn** and beginner-friendly.  
+- It allows **automation** of repetitive tasks.  
+- It provides access to **ArcPy**, a powerful library for geoprocessing.  
+- It integrates well with other Python libraries (`pandas`, `numpy`, `matplotlib`).  
+
+ArcGIS Pro comes with its own Python environment, which makes it easy to get started.
+
+---
+
+## Accessing Python in ArcGIS
+
+There are several ways to use Python with ArcGIS:  
+
+1. **Python Window in ArcGIS Pro**  
+   - A built-in console for running quick Python commands.  
+
+2. **Standalone Python Scripts**  
+   - Create `.py` files and run them inside ArcGIS Pro’s environment.  
+
+3. **Jupyter Notebooks**  
+   - Interactive way of combining code, results, and explanations (what we use here).  
+
+---
+
+## Writing Your First Python Script in ArcGIS
+
+Let’s begin with a simple Python program to print a message.
+
+```{python}
+print("Hello, GIS World!")
+```
+
+---
+
+## Using Python as a Calculator
+
+Python can also be used like a calculator:
+
+```{python}
+a = 10
+b = 5
+sum_ab = a + b
+product_ab = a * b
+
+print("Sum:", sum_ab)
+print("Product:", product_ab)
+```
+
+---
+
+## Hello ArcPy
+
+To connect Python with ArcGIS, we import the **ArcPy** module.  
+
+> Note: This code will only work inside the ArcGIS Pro Python environment.
+
+```{python}
+import arcpy
+
+# Check ArcPy version
+print("ArcPy is ready! Version:", arcpy.GetInstallInfo()["Version"])
+```
+
+---
+
+## Example: List Feature Classes in a Folder
+
+Let’s try a small GIS-related script using ArcPy.
+
+```{python}
+import arcpy
+
+# Set workspace (change path to your local GIS data folder)
+arcpy.env.workspace = r"D:\GIS_Data\OSM\shape"
+
+# List all feature classes
+feature_classes = arcpy.ListFeatureClasses()
+
+print("Feature Classes in workspace:")
+for fc in feature_classes:
+    print("-", fc)
+```
+
+---
+
+## Visual Guide: Ways to Use Python in ArcGIS
+
+```{mermaid}
+flowchart TD
+    A["Python Window (ArcGIS Pro)"] --> D["Use Python for quick tasks"]
+    B["Standalone Scripts (.py)"] --> D
+    C["Notebooks (Jupyter / Quarto)"] --> D
+    D["Automate & Analyze GIS Data with ArcPy"]
+```
+
+---
+
+## Summary
+
+In this chapter, we learned:  
+- Why Python is important for ArcGIS.  
+- Different ways to use Python in ArcGIS.  
+- How to write a simple Python script.  
+- How to connect to ArcPy and list GIS datasets.  
+
+---
+
+## Exercise
+
+Try the following tasks on your own:  
+
+1. Write a Python script that multiplies two numbers and prints the result.  
+2. Modify the ArcPy script above to set your own folder path and list feature classes.  
+3. Run the `arcpy.GetInstallInfo()` command and note down your ArcGIS version.  
+
+---

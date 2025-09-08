@@ -1,0 +1,126 @@
+---
+title: "Automating Workflows in ArcPy"
+author: "Your Name"
+format: html
+jupyter: python3
+---
+
+# Automating Workflows in ArcPy
+
+Automation is one of the most powerful features of Python in GIS.  
+With ArcPy, you can process multiple datasets, repeat tasks, and reduce manual effort.  
+
+In this chapter, we will explore automation techniques in ArcGIS using Python.
+
+---
+
+## Batch Processing with Python Loops
+
+We often need to apply the same tool to multiple datasets.  
+This can be automated using Python loops.
+
+```{python}
+import arcpy
+
+arcpy.env.workspace = r"C:\GIS_Data"
+arcpy.env.overwriteOutput = True
+
+# List all shapefiles in the folder
+shapefiles = arcpy.ListFeatureClasses()
+
+# Apply buffer to each shapefile
+for shp in shapefiles:
+    out_fc = shp.replace(".shp", "_buffer.shp")
+    arcpy.Buffer_analysis(shp, out_fc, "500 Meters")
+    print(f"Buffer created for {shp} -> {out_fc}")
+```
+
+---
+
+## ModelBuilder vs Python Scripting
+
+- **ModelBuilder**: A visual tool in ArcGIS for building workflows by connecting geoprocessing tools.  
+  - Easy to learn, drag-and-drop interface.  
+  - Limited flexibility compared to scripting.  
+
+- **Python Scripting**: A text-based approach using ArcPy.  
+  - More **flexibility and control**.  
+  - Easier to **automate repetitive tasks**.  
+  - Can integrate with external libraries (`pandas`, `requests`, etc.).  
+
+👉 **Best practice**: Start with ModelBuilder for designing workflows, then export to Python script for automation.
+
+---
+
+## Example: Batch Buffer Multiple Shapefiles
+
+```{python}
+import arcpy
+
+arcpy.env.workspace = r"C:\GIS_Data"
+arcpy.env.overwriteOutput = True
+
+# Batch buffer for all shapefiles in the folder
+for shp in arcpy.ListFeatureClasses("*.shp"):
+    out_fc = shp.replace(".shp", "_1km_buffer.shp")
+    arcpy.Buffer_analysis(shp, out_fc, "1000 Meters")
+    print("Buffered:", shp)
+```
+
+---
+
+## Example: Automate Daily Raster Download & Processing
+
+Suppose we want to download a raster daily (e.g., rainfall data), clip it, and save results.  
+We can combine Python’s **requests** library with ArcPy.
+
+```{python}
+import arcpy
+import requests
+import datetime
+import os
+
+# Example folder setup
+arcpy.env.workspace = r"C:\GIS_Data\rasters"
+arcpy.env.overwriteOutput = True
+
+# Step 1: Download raster (simulated example with URL)
+today = datetime.date.today().strftime("%Y%m%d")
+url = f"https://example.com/rasters/rainfall_{today}.tif"
+out_raster = os.path.join(arcpy.env.workspace, f"rainfall_{today}.tif")
+
+response = requests.get(url)
+with open(out_raster, "wb") as f:
+    f.write(response.content)
+
+print("Raster downloaded:", out_raster)
+
+# Step 2: Clip raster by boundary
+boundary = r"C:\GIS_Data\district_boundary.shp"
+clipped_raster = os.path.join(arcpy.env.workspace, f"rainfall_{today}_clip.tif")
+
+arcpy.Clip_management(out_raster, "#", clipped_raster, boundary, "#", "ClippingGeometry")
+print("Raster clipped:", clipped_raster)
+```
+
+---
+
+## Summary
+
+In this chapter, we learned:  
+- How to use Python loops for **batch processing**.  
+- The difference between **ModelBuilder** and **Python scripting**.  
+- Example of **batch buffer processing**.  
+- Example of automating **daily raster download and clipping**.  
+
+---
+
+## Exercise
+
+Try the following tasks:  
+
+1. Write a script that performs dissolve operation for all shapefiles in a folder.  
+2. Automate daily raster download for any free dataset (e.g., MODIS NDVI).  
+3. Use ModelBuilder to create a workflow, export it to Python, and then modify it.  
+
+---
