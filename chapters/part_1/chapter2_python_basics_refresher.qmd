@@ -11,6 +11,7 @@ A **variable** is a named storage that holds data in memory, which can be used a
 In Python, variables are created when you assign a value using the `=` operator.
 
 ### Rules for variable names
+
 - Must start with a letter or underscore (`_`)  
 - Cannot start with a number  
 - Can only contain letters, numbers, and underscores  
@@ -128,6 +129,7 @@ print("Folder structure:", parts)
 ## Summary
 
 In this chapter, we reviewed:  
+
 - Variables and common data types in Python.  
 - Basic operators and expressions.  
 - Simple input/output programs.  

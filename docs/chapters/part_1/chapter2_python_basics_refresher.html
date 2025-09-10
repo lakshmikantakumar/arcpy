@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Lecture Notes Using Free and Open-Source Software">
+<meta name="description" content="Lecture Notes">
 
-<title>2&nbsp; Python Basics – arcpy</title>
+<title>2&nbsp; Python Basics – ArcPy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -134,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">arcpy</a> 
+      <a href="../../">ArcPy</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/lakshmikantakumar/arcpy/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -190,6 +190,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../chapters/part_1/chapter5_error_handling_exceptions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Error Handling and Exceptions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 2: Working with ArcPy</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part_2/chapter6_introduction_arcpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction to ArcPy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part_2/chapter7_working_with_spatial_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with Spatial Data in ArcPy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part_2/chapter8_attribute_table_operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Attribute Table Operations in ArcPy</span></span></a>
   </div>
 </li>
       </ul>
@@ -277,7 +306,7 @@ In Python, variables are created when you assign a value using the <code>=</code
 </section>
 <section id="example-declaring-variables" class="level3" data-number="2.1.3">
 <h3 data-number="2.1.3" class="anchored" data-anchor-id="example-declaring-variables"><span class="header-section-number">2.1.3</span> Example: Declaring Variables</h3>
-<div id="206e079a" class="cell" data-execution_count="1">
+<div id="9a37209a" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Integer</span></span>
@@ -327,7 +356,7 @@ True &lt;class 'bool'&gt;
 </li>
 <li>Logical Operators: <code>and</code>, <code>or</code>, <code>not</code></li>
 </ul>
-<div id="c000199a" class="cell" data-execution_count="2">
+<div id="7d9c55a2" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">15</span></span>
@@ -357,7 +386,7 @@ Logical AND: True</code></pre>
 <section id="inputoutput-and-simple-programs" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="inputoutput-and-simple-programs"><span class="header-section-number">2.3</span> Input/Output and Simple Programs</h2>
 <p>In interactive Python (like IDLE or terminal), you can take input with <code>input()</code>.</p>
-<div id="144bfae0" class="cell" data-execution_count="3">
+<div id="78e938d7" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: calculate area of a rectangle</span></span>
@@ -378,7 +407,7 @@ Logical AND: True</code></pre>
 <section id="working-with-strings" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="working-with-strings"><span class="header-section-number">2.4</span> Working with Strings</h2>
 <p>Strings are important in GIS because we often work with file paths, names, and attribute data.</p>
-<div id="30555af9" class="cell" data-execution_count="4">
+<div id="69c62d11" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># String operations</span></span>
@@ -405,11 +434,16 @@ Folder structure: ['D:/GIS_Data/OSM/shape/roads.shp']</code></pre>
 </section>
 <section id="summary" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="summary"><span class="header-section-number">2.5</span> Summary</h2>
-<p>In this chapter, we reviewed:<br>
-- Variables and common data types in Python.<br>
-- Basic operators and expressions.<br>
-- Simple input/output programs.<br>
-- String operations useful for GIS tasks.</p>
+<p>In this chapter, we reviewed:</p>
+<ul>
+<li>Variables and common data types in Python.<br>
+</li>
+<li>Basic operators and expressions.<br>
+</li>
+<li>Simple input/output programs.<br>
+</li>
+<li>String operations useful for GIS tasks.</li>
+</ul>
 <hr>
 </section>
 <section id="exercise" class="level2" data-number="2.6">

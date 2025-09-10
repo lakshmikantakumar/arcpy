@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Lakshmi Kantakumar">
-<meta name="dcterms.date" content="2025-09-10">
 <meta name="description" content="Lecture Notes">
 
-<title>ArcPy</title>
+<title>8&nbsp; Attribute Table Operations in ArcPy – ArcPy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +21,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./chapters/part_1/chapter1_intro_python_gis.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/part_2/chapter7_working_with_spatial_data.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -73,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles/styles.css">
+<link rel="stylesheet" href="../../styles/styles.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -85,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part_2/chapter6_introduction_arcpy.html">Part 2: Working with ArcPy</a></li><li class="breadcrumb-item"><a href="../../chapters/part_2/chapter8_attribute_table_operations.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Attribute Table Operations in ArcPy</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -100,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">ArcPy</a> 
+      <a href="../../">ArcPy</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/lakshmikantakumar/arcpy/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -115,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -130,31 +163,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/part_1/chapter1_intro_python_gis.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/part_1/chapter1_intro_python_gis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python for GIS</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/part_1/chapter2_python_basics_refresher.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/part_1/chapter2_python_basics_refresher.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/part_1/chapter3_control_structures.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/part_1/chapter3_control_structures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Control Structures in Python</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/part_1/chapter4_functions_modules.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/part_1/chapter4_functions_modules.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functions and Modules in Python</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/part_1/chapter5_error_handling_exceptions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/part_1/chapter5_error_handling_exceptions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Error Handling and Exceptions</span></span></a>
   </div>
 </li>
@@ -171,19 +204,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/part_2/chapter6_introduction_arcpy.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/part_2/chapter6_introduction_arcpy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction to ArcPy</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/part_2/chapter7_working_with_spatial_data.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/part_2/chapter7_working_with_spatial_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with Spatial Data in ArcPy</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/part_2/chapter8_attribute_table_operations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/part_2/chapter8_attribute_table_operations.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Attribute Table Operations in ArcPy</span></span></a>
   </div>
 </li>
@@ -199,47 +232,32 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#reading-field-names" id="toc-reading-field-names" class="nav-link active" data-scroll-target="#reading-field-names"><span class="header-section-number">8.1</span> Reading Field Names</a></li>
+  <li><a href="#data-access-using-arcpy.da-cursors" id="toc-data-access-using-arcpy.da-cursors" class="nav-link" data-scroll-target="#data-access-using-arcpy.da-cursors"><span class="header-section-number">8.2</span> Data Access Using <code>arcpy.da</code> Cursors</a>
+  <ul class="collapse">
+  <li><a href="#cursor-types" id="toc-cursor-types" class="nav-link" data-scroll-target="#cursor-types"><span class="header-section-number">8.2.1</span> Cursor Types</a></li>
+  <li><a href="#example-read-geometry-with-searchcursor" id="toc-example-read-geometry-with-searchcursor" class="nav-link" data-scroll-target="#example-read-geometry-with-searchcursor"><span class="header-section-number">8.2.2</span> Example: Read Geometry with <code>SearchCursor</code></a></li>
+  <li><a href="#practical-count-features-add-area-field" id="toc-practical-count-features-add-area-field" class="nav-link" data-scroll-target="#practical-count-features-add-area-field"><span class="header-section-number">8.2.3</span> Practical: Count Features &amp; Add Area Field</a></li>
+  <li><a href="#example-insert-rows-with-insertcursor" id="toc-example-insert-rows-with-insertcursor" class="nav-link" data-scroll-target="#example-insert-rows-with-insertcursor"><span class="header-section-number">8.2.4</span> Example: Insert Rows with <code>InsertCursor</code></a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">8.3</span> Summary</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">8.4</span> Exercise</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part_2/chapter6_introduction_arcpy.html">Part 2: Working with ArcPy</a></li><li class="breadcrumb-item"><a href="../../chapters/part_2/chapter8_attribute_table_operations.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Attribute Table Operations in ArcPy</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ArcPy</h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Attribute Table Operations in ArcPy</span></h1>
 </div>
 
-<div>
-  <div class="description">
-    Lecture Notes
-  </div>
-</div>
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://github.com/lakshmikantakumar">Lakshmi Kantakumar</a> <a href="mailto:lakshmikanthkumar@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-8912-3853" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            Faculty of Topo &amp; GIS, National Institute for Geo-informatics Science and Technology (NIGST), Survey of India
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 10, 2025</p>
-    </div>
-  </div>
+    
   
     
   </div>
@@ -249,30 +267,199 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>Geoinformatics is a multidisciplinary field that combines spatial data collection, management, analysis, and visualization. It brings together tools and methods from cartography, remote sensing, surveying, computer science, and data analysis to address problems related to land, water, environment, and infrastructure. As the amount of spatial data continues to increase, there is a need for efficient ways to manage and process this information.</p>
-<p>Python programming is widely used in scientific computing and is also integrated into Geoinformatics applications. In the ArcGIS Pro environment, Python through the <strong>ArcPy site package</strong>, enables analysts and researchers to automate workflows, conduct spatial analysis, and extend existing functionality.</p>
-<p>The objective of this course, <strong>Geospatial Analysis with Python in ArcGIS</strong>, is to provide learners with an introduction to Python programming and its application to Geoinformatics tasks. The material is organized to build understanding in a gradual way:</p>
+<p>In this chapter, we will learn how to interact with attribute tables in ArcGIS using ArcPy.<br>
+ArcPy provides different types of <strong>cursors</strong> to read, update, and insert data into attribute tables.</p>
+<hr>
+<section id="reading-field-names" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="reading-field-names"><span class="header-section-number">8.1</span> Reading Field Names</h2>
+<p>We can list the fields of a feature class or shapefile using <code>arcpy.ListFields()</code>.</p>
+<div id="4c6d0c9b" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arcpy</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the workspace where your data resides</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>arcpy.env.workspace <span class="op">=</span> <span class="vs">r"D:/GIS_Data/OSM/shape"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>fc <span class="op">=</span> <span class="st">"roads.shp"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>fields <span class="op">=</span> arcpy.ListFields(fc)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Fields in"</span>, fc, <span class="st">":"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> field <span class="kw">in</span> fields:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"-"</span>, field.name, <span class="st">"("</span>, field.<span class="bu">type</span>, <span class="st">")"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Fields in roads.shp :
+- FID ( OID )
+- Shape ( Geometry )
+- osm_id ( Double )
+- name ( String )
+- ref ( String )
+- type ( String )
+- oneway ( SmallInteger )
+- bridge ( SmallInteger )
+- maxspeed ( SmallInteger )</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="data-access-using-arcpy.da-cursors" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="data-access-using-arcpy.da-cursors"><span class="header-section-number">8.2</span> Data Access Using <code>arcpy.da</code> Cursors</h2>
+<p>The modern, efficient way to read/write attributes and geometry is through the <code>arcpy.da</code> (Data Access) cursors: <code>SearchCursor</code>, <code>UpdateCursor</code>, and <code>InsertCursor</code>.</p>
+<section id="cursor-types" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="cursor-types"><span class="header-section-number">8.2.1</span> Cursor Types</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Cursor Type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>SearchCursor</code></td>
+<td>Read-only access to feature attributes/geometry</td>
+</tr>
+<tr class="even">
+<td><code>UpdateCursor</code></td>
+<td>Read and update existing rows</td>
+</tr>
+<tr class="odd">
+<td><code>InsertCursor</code></td>
+<td>Add new rows to a table/feature class</td>
+</tr>
+</tbody>
+</table>
+<p>These replace older cursor methods and are significantly faster and more robust.</p>
+<hr>
+</section>
+<section id="example-read-geometry-with-searchcursor" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="example-read-geometry-with-searchcursor"><span class="header-section-number">8.2.2</span> Example: Read Geometry with <code>SearchCursor</code></h3>
+<div id="b83cd14b" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arcpy</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the workspace where your data resides</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>arcpy.env.workspace <span class="op">=</span> <span class="vs">r"D:/GIS_Data/OSM/shape"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>fc <span class="op">=</span> <span class="st">"zones.shp"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> arcpy.da.SearchCursor(fc, [<span class="st">"SHAPE@"</span>]) <span class="im">as</span> cursor:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> cursor:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        geom <span class="op">=</span> row[<span class="dv">0</span>]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Feature type:"</span>, geom.<span class="bu">type</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Area:"</span>, geom.area)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Length:"</span>, geom.length)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span>  <span class="co"># Show only the first feature</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Feature type: polygon
+Area: 0.0002910697753912165
+Length: 0.07561464351089768</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> Use geometry tokens like <code>SHAPE@XY</code>, <code>SHAPE@AREA</code>, <code>SHAPE@LENGTH</code> for more efficient access.</p>
+</blockquote>
+<hr>
+</section>
+<section id="practical-count-features-add-area-field" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="practical-count-features-add-area-field"><span class="header-section-number">8.2.3</span> Practical: Count Features &amp; Add Area Field</h3>
+<div id="4f20a6a0" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arcpy</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the workspace where your data resides</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>arcpy.env.workspace <span class="op">=</span> <span class="vs">r"D:/GIS_Data/OSM/shape"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>fc <span class="op">=</span> <span class="st">"zones.shp"</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Count features</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="bu">int</span>(arcpy.management.GetCount(fc).getOutput(<span class="dv">0</span>))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Feature count:"</span>, count)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a new field if not exists</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>fields <span class="op">=</span> [f.name <span class="cf">for</span> f <span class="kw">in</span> arcpy.ListFields(fc)]</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"Area_Ha"</span> <span class="kw">not</span> <span class="kw">in</span> fields:</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    arcpy.management.AddField(fc, <span class="st">"Area_Ha"</span>, <span class="st">"DOUBLE"</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Update area in hectares</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> arcpy.da.UpdateCursor(fc, [<span class="st">"SHAPE@"</span>, <span class="st">"Area_Ha"</span>]) <span class="im">as</span> cursor:</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> cursor:</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        row[<span class="dv">1</span>] <span class="op">=</span> row[<span class="dv">0</span>].area <span class="op">/</span> <span class="dv">10000</span>  <span class="co"># Convert m² to ha</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        cursor.updateRow(row)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Added/updated 'Area_Ha' field."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Feature count: 4
+Added/updated 'Area_Ha' field.</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="example-insert-rows-with-insertcursor" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="example-insert-rows-with-insertcursor"><span class="header-section-number">8.2.4</span> Example: Insert Rows with <code>InsertCursor</code></h3>
+<div id="afbc80a9" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arcpy</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the workspace where your data resides</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>arcpy.env.workspace <span class="op">=</span> <span class="vs">r"D:/GIS_Data/OSM/shape"</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>fc <span class="op">=</span> <span class="st">"places.shp"</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>fields <span class="op">=</span> [<span class="st">"SHAPE@XY"</span>, <span class="st">"Name"</span>]</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> arcpy.da.InsertCursor(fc, fields) <span class="im">as</span> cursor:</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    cursor.insertRow(((<span class="fl">78.5548245</span>, <span class="fl">17.4041281</span>), <span class="st">"NIGST"</span>))</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    cursor.insertRow(((<span class="fl">78.5523354</span>, <span class="fl">17.4047443</span>), <span class="st">"Everest Hostel"</span>))</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Inserted points successfully."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Inserted points successfully.</code></pre>
+</div>
+</div>
+<div id="insert" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="fig/insert_rows.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Insert Rows with InsertCursor</figcaption>
+</figure>
+</div>
+<p>Use the correct cursor type depending on your use case.</p>
+<hr>
+</section>
+</section>
+<section id="summary" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="summary"><span class="header-section-number">8.3</span> Summary</h2>
+<p>In this chapter, we learned:</p>
 <ul>
-<li><strong>Part 1: Python Foundations for Geoinformatics</strong> introduces the essentials of Python programming, including variables, control structures, functions, modules, and error handling.<br>
+<li>How to read <strong>field names</strong> using <code>arcpy.ListFields()</code>.<br>
 </li>
-<li><strong>Part 2: Working with ArcPy</strong> explains how Python integrates with ArcGIS, focusing on geoprocessing tools, attribute table operations, spatial data handling, and raster analysis.<br>
-</li>
-<li><strong>Part 3: Applied Workflows</strong> presents examples of automation, spatial analysis, and task-oriented scripting.</li>
-</ul>
-<p>Each chapter includes examples, practice exercises, and Geoinformatics use cases to connect Python concepts with spatial data applications. By working through the material, learners will be able to:</p>
+<li>How to use <code>arcpy.da</code> cursors:
 <ul>
-<li>Understand the basics of Python programming in the context of Geoinformatics.<br>
-</li>
-<li>Use ArcPy to carry out geoprocessing tasks.<br>
-</li>
-<li>Write scripts that process both vector and raster data.<br>
-</li>
-<li>Develop workflows to improve efficiency and reduce manual repetition.</li>
+<li><code>SearchCursor</code> for reading attributes and geometry</li>
+<li><code>UpdateCursor</code> for modifying attribute values</li>
+<li><code>InsertCursor</code> for adding new features or rows</li>
+<li>Geometry tokens for efficient access</li>
+</ul></li>
+<li>A practical example of updating attribute values.</li>
 </ul>
-<p>The course is designed for students, professionals, and researchers with an interest in Geoinformatics who wish to enhance their technical skills. A general familiarity with ArcGIS software is helpful, but prior programming experience is not required.</p>
-<p>These lecture notes aim to support learners in building a foundation in Python for Geoinformatics and in applying these skills to common tasks in ArcGIS Pro.</p>
+<hr>
+</section>
+<section id="exercise" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="exercise"><span class="header-section-number">8.4</span> Exercise</h2>
+<p>Try the following tasks:</p>
+<ol type="1">
+<li>Use a SearchCursor to print the first 10 rows of the attribute table.<br>
+</li>
+<li>Add a new field <code>Perimeter</code> and calculate polygon perimeters using UpdateCursor.<br>
+</li>
+<li>Use an InsertCursor to add a new point feature with coordinates and a name attribute.</li>
+</ol>
 <hr>
 
 
@@ -680,11 +867,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../../chapters/part_2/chapter7_working_with_spatial_data.html" class="pagination-link" aria-label="Working with Spatial Data in ArcPy">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with Spatial Data in ArcPy</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapters/part_1/chapter1_intro_python_gis.html" class="pagination-link" aria-label="Introduction to Python for GIS">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python for GIS</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

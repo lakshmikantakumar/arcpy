@@ -16,5 +16,14 @@
   },
   "chapters/part_1/chapter5_error_handling_exceptions.qmd": {
     "chapter5_error_handling_exceptions.html": "05128128"
+  },
+  "chapters/part_2/chapter6_introduction_arcpy.qmd": {
+    "chapter6_introduction_arcpy.html": "4768305e"
+  },
+  "chapters/part_2/chapter7_working_with_spatial_data.qmd": {
+    "chapter7_working_with_spatial_data.html": "8c4cf270"
+  },
+  "chapters/part_2/chapter8_attribute_table_operations.qmd": {
+    "chapter8_attribute_table_operations.html": "0abfa5c1"
   }
 }

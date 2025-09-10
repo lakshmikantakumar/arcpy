@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Lecture Notes Using Free and Open-Source Software">
+<meta name="description" content="Lecture Notes">
 
-<title>4&nbsp; Functions and Modules in Python – arcpy</title>
+<title>4&nbsp; Functions and Modules in Python – ArcPy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -134,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">arcpy</a> 
+      <a href="../../">ArcPy</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/lakshmikantakumar/arcpy/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -190,6 +190,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../chapters/part_1/chapter5_error_handling_exceptions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Error Handling and Exceptions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 2: Working with ArcPy</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part_2/chapter6_introduction_arcpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction to ArcPy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part_2/chapter7_working_with_spatial_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with Spatial Data in ArcPy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part_2/chapter8_attribute_table_operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Attribute Table Operations in ArcPy</span></span></a>
   </div>
 </li>
       </ul>
@@ -266,7 +295,7 @@ Functions can:</p>
 3. A colon <code>:</code><br>
 4. An indented block of code (the function body)</p>
 <p><strong>General syntax:</strong></p>
-<div id="fef7d2ee" class="cell" data-execution_count="1">
+<div id="b0e2191a" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> function_name(parameters):</span>
@@ -280,7 +309,7 @@ Functions can:</p>
 <p>A <strong>function</strong> is a block of code that runs only when called. Functions can take inputs (parameters) and return outputs.</p>
 <section id="example-a-simple-function" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="example-a-simple-function"><span class="header-section-number">4.2.1</span> Example: A simple function</h3>
-<div id="0430624f" class="cell" data-execution_count="2">
+<div id="5d60a932" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple function without parameters</span></span>
@@ -296,7 +325,7 @@ Functions can:</p>
 </section>
 <section id="example-function-with-parameters-and-return-value" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="example-function-with-parameters-and-return-value"><span class="header-section-number">4.2.2</span> Example: Function with parameters and return value</h3>
-<div id="c0b0445f" class="cell" data-execution_count="3">
+<div id="f02132b0" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_numbers(a, b):</span>
@@ -314,7 +343,7 @@ Functions can:</p>
 </section>
 <section id="example-function-with-default-parameters" class="level3" data-number="4.2.3">
 <h3 data-number="4.2.3" class="anchored" data-anchor-id="example-function-with-default-parameters"><span class="header-section-number">4.2.3</span> Example: Function with default parameters</h3>
-<div id="f6b0f296" class="cell" data-execution_count="4">
+<div id="9f74450a" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet(name<span class="op">=</span><span class="st">"GIS Learner"</span>):</span>
@@ -339,18 +368,26 @@ Instead of writing everything yourself, you can <strong>import</strong> modules 
 <section id="importing-a-module" class="level3" data-number="4.3.1">
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="importing-a-module"><span class="header-section-number">4.3.1</span> Importing a Module</h3>
 <p>We use the <strong><code>import</code> keyword</strong> to bring a module into our program.<br>
-You can:<br>
-- Import the whole module → <code>import os</code><br>
-- Import with an alias → <code>import numpy as np</code><br>
-- Import specific functions → <code>from math import sqrt</code></p>
+You can:</p>
+<ul>
+<li>Import the whole module → <code>import os</code><br>
+</li>
+<li>Import with an alias → <code>import numpy as np</code><br>
+</li>
+<li>Import specific functions → <code>from math import sqrt</code></li>
+</ul>
 </section>
 <section id="example-the-os-module-operating-system" class="level3" data-number="4.3.2">
 <h3 data-number="4.3.2" class="anchored" data-anchor-id="example-the-os-module-operating-system"><span class="header-section-number">4.3.2</span> Example: The <code>os</code> Module (Operating System)</h3>
-<p>The <code>os</code> module provides functions to interact with the operating system:<br>
-- Work with files and directories<br>
-- Join paths in a cross-platform way<br>
-- Check if files exist</p>
-<div id="93ae11bc" class="cell" data-execution_count="5">
+<p>The <code>os</code> module provides functions to interact with the operating system:</p>
+<ul>
+<li>Work with files and directories<br>
+</li>
+<li>Join paths in a cross-platform way<br>
+</li>
+<li>Check if files exist</li>
+</ul>
+<div id="0ab58213" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -374,7 +411,7 @@ Does file exist? True</code></pre>
 <h2 data-number="4.4" class="anchored" data-anchor-id="importing-arcpy-in-scripts"><span class="header-section-number">4.4</span> Importing ArcPy in Scripts</h2>
 <p>ArcPy is a powerful library for GIS tasks in ArcGIS.<br>
 You can import it into your script like any other module.</p>
-<div id="0d6a02bf" class="cell" data-execution_count="6">
+<div id="66ce9096" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arcpy</span>
@@ -392,7 +429,7 @@ You can import it into your script like any other module.</p>
 <section id="example-a-simple-buffer-function" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="example-a-simple-buffer-function"><span class="header-section-number">4.5</span> Example: A Simple Buffer Function</h2>
 <p>Let’s create a function that performs a <strong>buffer operation</strong> on a shapefile.</p>
-<div id="448b99e7" class="cell" data-execution_count="7">
+<div id="c881db75" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arcpy</span>
@@ -409,8 +446,10 @@ You can import it into your script like any other module.</p>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Buffer created: </span><span class="sc">{</span>output_fc<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage (adjust file paths as needed)</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>arcpy.env.workspace <span class="op">=</span> <span class="vs">r"D:/GIS_Data/OSM/shape"</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>buffer_features(<span class="st">"roads_utm44n.shp"</span>, <span class="st">"roads_buffer_1.shp"</span>, <span class="st">"50 Meters"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>arcpy.env.workspace <span class="op">=</span> <span class="vs">r"D:/GIS_Data/OSM/shape"</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>arcpy.env.overwriteOutput <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>buffer_features(<span class="st">"roads_utm44n.shp"</span>, <span class="st">"roads_buffer_1.shp"</span>, <span class="st">"50 Meters"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Buffer created: roads_buffer_1.shp</code></pre>
@@ -420,11 +459,16 @@ You can import it into your script like any other module.</p>
 </section>
 <section id="summary" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="summary"><span class="header-section-number">4.6</span> Summary</h2>
-<p>In this chapter, we learned:<br>
-- How to define and use <strong>functions</strong>.<br>
-- How to use built-in modules like <strong>os</strong> and <strong>sys</strong>.<br>
-- How to import and use <strong>ArcPy</strong> in scripts.<br>
-- How to write a <strong>buffer function</strong> for automation.</p>
+<p>In this chapter, we learned:</p>
+<ul>
+<li>How to define and use <strong>functions</strong>.<br>
+</li>
+<li>How to use built-in modules like <strong>os</strong> and <strong>sys</strong>.<br>
+</li>
+<li>How to import and use <strong>ArcPy</strong> in scripts.<br>
+</li>
+<li>How to write a <strong>buffer function</strong> for automation.</li>
+</ul>
 <hr>
 </section>
 <section id="exercise" class="level2" data-number="4.7">

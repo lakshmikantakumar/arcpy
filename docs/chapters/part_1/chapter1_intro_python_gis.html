@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Lecture Notes Using Free and Open-Source Software">
+<meta name="description" content="Lecture Notes">
 
-<title>1&nbsp; Introduction to Python for GIS – arcpy</title>
+<title>1&nbsp; Introduction to Python for GIS – ArcPy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -137,7 +137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">arcpy</a> 
+      <a href="../../">ArcPy</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/lakshmikantakumar/arcpy/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -193,6 +193,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../chapters/part_1/chapter5_error_handling_exceptions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Error Handling and Exceptions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 2: Working with ArcPy</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part_2/chapter6_introduction_arcpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction to ArcPy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part_2/chapter7_working_with_spatial_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with Spatial Data in ArcPy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part_2/chapter8_attribute_table_operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Attribute Table Operations in ArcPy</span></span></a>
   </div>
 </li>
       </ul>
@@ -281,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="writing-your-first-python-script-in-arcgis" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="writing-your-first-python-script-in-arcgis"><span class="header-section-number">1.3</span> Writing Your First Python Script in ArcGIS</h2>
 <p>Let’s begin with a simple Python program to print a message.</p>
-<div id="ee5423b8" class="cell" data-execution_count="1">
+<div id="7f3d677b" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, GIS World!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -295,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="using-python-as-a-calculator" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="using-python-as-a-calculator"><span class="header-section-number">1.4</span> Using Python as a Calculator</h2>
 <p>Python can also be used like a calculator:</p>
-<div id="64dbb5a3" class="cell" data-execution_count="2">
+<div id="5685faed" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">10</span></span>
@@ -319,7 +348,7 @@ Product: 50</code></pre>
 <blockquote class="blockquote">
 <p>Note: This code will only work inside the ArcGIS Pro Python environment.</p>
 </blockquote>
-<div id="380187ad" class="cell" data-execution_count="3">
+<div id="040fbc63" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arcpy</span>
@@ -336,7 +365,7 @@ Product: 50</code></pre>
 <section id="example-list-feature-classes-in-a-folder" class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="example-list-feature-classes-in-a-folder"><span class="header-section-number">1.6</span> Example: List Feature Classes in a Folder</h2>
 <p>Let’s try a small GIS-related script using ArcPy.</p>
-<div id="6d87e811" class="cell" data-execution_count="4">
+<div id="41e715c4" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arcpy</span>
@@ -362,8 +391,15 @@ Product: 50</code></pre>
 - roads.shp
 - roads_buffer.shp
 - roads_buffer_1.shp
+- roads_buffer_alias_style.shp
+- roads_buffer_clipped.shp
+- roads_buffer_module_style.shp
+- roads_final.shp
 - roads_utm44n.shp
-- waterways.shp</code></pre>
+- waterways.shp
+- zones.shp
+- zones_dissolved.shp
+- zones_utm.shp</code></pre>
 </div>
 </div>
 <hr>

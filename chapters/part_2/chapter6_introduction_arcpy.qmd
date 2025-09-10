@@ -1,0 +1,190 @@
+# Introduction to ArcPy
+
+ArcPy is a Python site package provided with ArcGIS that allows you to automate geoprocessing tasks, perform spatial analysis, and manage spatial data.  
+By learning ArcPy, you can reduce repetitive manual work in ArcGIS and create reproducible workflows that are easy to share and maintain.
+
+---
+
+## ArcPy Site Package
+
+ArcPy provides access to almost all geoprocessing tools available in ArcGIS.  
+With ArcPy, you can:  
+
+- Perform spatial analysis (Buffer, Clip, Intersect, Overlay, etc.)  
+- Automate map production and data management  
+- Access and manipulate spatial datasets (shapefiles, feature classes, rasters)  
+- Build custom workflows and scripts for repeated tasks  
+
+```{python}
+import arcpy
+
+# Check ArcPy installation details
+# GetInstallInfo() returns a dictionary with version and product details
+info = arcpy.GetInstallInfo()
+
+print("ArcPy Version:", info["Version"])
+print("Product Name:", info["ProductName"])
+```
+
+---
+
+## The `arcpy.env` Workspace & Overwriting Outputs
+
+ArcPy uses an environment workspace (`arcpy.env.workspace`) to know where to read inputs and save outputs. By default, if you give only a filename (not a full path), 
+ArcPy assumes it is inside the workspace.
+
+You can also allow scripts to overwrite outputs using `arcpy.env.overwriteOutput` which is convenient for development and testing.
+
+```{python}
+import arcpy
+
+# Set the workspace (where your input feature classes are stored)
+arcpy.env.workspace = r"D:/GIS_Data/OSM/shape"
+
+# Allow overwriting existing outputs (useful when re-running scripts during development)
+arcpy.env.overwriteOutput = True
+
+# Example: dissolve polygons based on an attribute field
+arcpy.Dissolve_management("zones.shp", "zones_dissolved.shp", "Type")
+
+print("Dissolve completed successfully!")
+```
+
+![Dissolve](fig/zone_dissolve.png){#dissolve fig-align="center" width=70%}
+
+---
+
+## ArcGIS Geoprocessing Tools in Python
+
+In ArcPy, geoprocessing tools are organized in **two equivalent ways**. You can call tools either directly from the `arcpy` namespace using the toolbox alias suffix, or from a module that 
+matches the toolbox name. Both approaches execute the same underlying tool; choice depends on readability and coding style.
+
+### Two equivalent access styles
+
+1. **Toolbox-alias style (older / widely seen in scripts)**  
+   ```python
+   arcpy.GetCount_management(in_features)
+   ```
+   Here the tool name is `GetCount` and `_management` indicates it belongs to the **Data Management** toolbox. The function is attached directly to the `arcpy` namespace with the toolbox suffix.
+
+2. **Module-based style (cleaner, recommended for readability)**  
+   ```python
+   arcpy.management.GetCount(in_features)
+   ```
+   In this style tools are grouped by toolbox module (e.g., `management`, `analysis`, `conversion`) which helps organize code and makes it clearer which toolbox a tool belongs to.
+
+> **Tip:** Dragging a tool from the Geoprocessing pane in ArcGIS Pro to the Python window inserts a working function call showing the preferred syntax and parameter names for that tool.
+
+---
+
+### Example: Get Feature Count (both styles)
+
+```{python}
+import arcpy
+
+arcpy.env.workspace = r"D:/GIS_Data/OSM/shape"
+
+# Option 1: Toolbox-alias style
+count1 = arcpy.GetCount_management("roads.shp")
+print("Count (alias style):", int(count1.getOutput(0)))
+
+# Option 2: Module-based style
+count2 = arcpy.management.GetCount("roads.shp")
+print("Count (module style):", int(count2.getOutput(0)))
+```
+
+Both return the same count — `getOutput(0)` extracts the tool's primary return value (a string), so we convert it to `int` for numeric use.
+
+![Attribute table showing count](fig/count.png){#count fig-align="center" width=70%}
+
+---
+
+### Example: Buffer Tool (two styles)
+
+```{python}
+import arcpy
+
+arcpy.env.workspace = r"D:/GIS_Data/OSM/shape"
+arcpy.env.overwriteOutput = True
+
+# Option 1: Alias style
+arcpy.Buffer_analysis("roads.shp", "roads_buffer_alias_style.shp", "50 Meters")
+
+# Option 2: Module style
+arcpy.analysis.Buffer("roads.shp", "roads_buffer_module_style.shp", "50 Meters")
+
+print("Buffer created successfully in both styles!")
+```
+
+Both commands create buffer outputs; the module style (e.g., `arcpy.analysis.Buffer`) groups the tool under its toolbox for clearer code organization.
+
+![Alias style and Module style](fig/road_buffer_alias_module.png){#road_buffer_alias_module fig-align="center" width=70%}
+
+---
+
+## Getting Tool Documentation
+
+ArcPy provides access to help/documentation for each tool, which is useful to learn required parameters, optional parameters, and usage examples.
+
+```{python}
+import arcpy
+
+# Get Python help for the Buffer tool
+help(arcpy.Buffer_analysis)
+
+# You can also examine the tool's parameter list programmatically
+tool = arcpy.Buffer_analysis
+print("Tool name:", tool.__name__)
+# Note: Certain introspection methods may vary; use ArcGIS Pro help for comprehensive docs.
+```
+
+For practical guidance, use the **Geoprocessing Pane** in ArcGIS Pro and drag tools to the Python window to see example calls with the correct parameter order and named arguments.
+
+---
+
+## Practical Example: Chaining Tools (Buffer → Clip → Dissolve)
+
+```{python}
+import arcpy
+
+arcpy.env.workspace = r"D:/GIS_Data/OSM/shape"
+arcpy.env.overwriteOutput = True
+
+# Step 1: Buffer roads
+arcpy.analysis.Buffer("roads.shp", "roads_buffer.shp", "100 Meters")
+
+# Step 2: Clip buffered roads by zones
+arcpy.analysis.Clip("roads_buffer.shp","zones.shp", "roads_buffer_clipped.shp")
+
+# Step 3: Dissolve by zones to merge buffers inside each zone
+arcpy.management.Dissolve("roads_buffer_clipped.shp", "roads_final.shp", "Name")
+
+print("Workflow completed successfully!")
+```
+
+![workflow Buffer → Clip → Dissolve ](fig/workflow.png){#workflow fig-align="center" width=70%}
+
+> **Notes about parameters used above:** Parameter names and order differ across tools; use `help()` or ArcGIS Pro tool help for exact usage 
+or [ArcPro Help](https://pro.arcgis.com/en/pro-app/3.4/tool-reference/).
+
+---
+
+## Summary
+
+In this chapter, we covered:  
+
+- Two equivalent ways to call ArcPy geoprocessing tools: toolbox-alias style and module-based style.  
+- Practical examples showing both styles (GetCount and Buffer).  
+- How to set `arcpy.env.workspace` and `arcpy.env.overwriteOutput`.  
+- How to access tool documentation and use ArcGIS Pro's Python window for example code.  
+- An example workflow chaining Buffer → Clip → Dissolve.
+
+---
+
+## Exercises
+
+1. Use `arcpy.management.GetCount()` to print the feature count for three different shapefiles in your workspace.  
+2. Write a script that buffers a layer, clips the buffer by a boundary, and summarizes the total buffered area per district.  
+3. Drag the `Intersect` tool from the Geoprocessing pane to ArcGIS Pro's Python window and paste the generated code into a script; then explain the arguments.  
+
+---

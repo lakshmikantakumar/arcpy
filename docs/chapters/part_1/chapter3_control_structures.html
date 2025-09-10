@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Lecture Notes Using Free and Open-Source Software">
+<meta name="description" content="Lecture Notes">
 
-<title>3&nbsp; Control Structures in Python – arcpy</title>
+<title>3&nbsp; Control Structures in Python – ArcPy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -134,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">arcpy</a> 
+      <a href="../../">ArcPy</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/lakshmikantakumar/arcpy/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -194,6 +194,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 2: Working with ArcPy</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part_2/chapter6_introduction_arcpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction to ArcPy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part_2/chapter7_working_with_spatial_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with Spatial Data in ArcPy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part_2/chapter8_attribute_table_operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Attribute Table Operations in ArcPy</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -249,7 +278,7 @@ In this chapter, we will learn about conditional statements and loops, which are
 <section id="if-else-conditions" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="if-else-conditions"><span class="header-section-number">3.1</span> If-Else Conditions</h2>
 <p>The <strong>if-else</strong> statement is used to make decisions in a program.</p>
-<div id="78a4eb70" class="cell" data-execution_count="1">
+<div id="a9f6d4be" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">20</span></span>
@@ -264,7 +293,7 @@ In this chapter, we will learn about conditional statements and loops, which are
 </div>
 </div>
 <p>We can also use <strong>elif</strong> for multiple conditions.</p>
-<div id="e3647dd6" class="cell" data-execution_count="2">
+<div id="5b5c6797" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>value <span class="op">=</span> <span class="dv">0</span></span>
@@ -288,7 +317,7 @@ In this chapter, we will learn about conditional statements and loops, which are
 <section id="for-loop" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="for-loop"><span class="header-section-number">3.2.1</span> For Loop</h3>
 <p>A <strong>for loop</strong> iterates over a sequence (list, range, string, etc.) and executes code for each item.</p>
-<div id="5bdab7da" class="cell" data-execution_count="3">
+<div id="c9f7b320" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print numbers 1 to 5</span></span>
@@ -307,7 +336,7 @@ Number: 5</code></pre>
 <section id="while-loop" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="while-loop"><span class="header-section-number">3.2.2</span> While Loop</h3>
 <p>A <strong>while loop</strong> executes code as long as a given condition is True.</p>
-<div id="57839520" class="cell" data-execution_count="4">
+<div id="65cf3078" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print numbers until condition is met</span></span>
@@ -332,7 +361,7 @@ n = 5</code></pre>
 <p>We often need to loop through collections of data.</p>
 <section id="looping-over-a-list" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="looping-over-a-list"><span class="header-section-number">3.3.1</span> Looping Over a List</h3>
-<div id="8af9dd02" class="cell" data-execution_count="5">
+<div id="fc5f78b6" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>layers <span class="op">=</span> [<span class="st">"roads.shp"</span>, <span class="st">"rivers.shp"</span>, <span class="st">"villages.shp"</span>]</span>
@@ -349,7 +378,7 @@ Processing: villages.shp</code></pre>
 </section>
 <section id="looping-over-a-dictionary" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="looping-over-a-dictionary"><span class="header-section-number">3.3.2</span> Looping Over a Dictionary</h3>
-<div id="d3943f74" class="cell" data-execution_count="6">
+<div id="06538579" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>city <span class="op">=</span> {<span class="st">"name"</span>: <span class="st">"Delhi"</span>, <span class="st">"population"</span>: <span class="dv">19000000</span>, <span class="st">"country"</span>: <span class="st">"India"</span>}</span>
@@ -370,7 +399,7 @@ country : India</code></pre>
 <h2 data-number="3.4" class="anchored" data-anchor-id="practical-example-looping-over-shapefile-names-in-a-folder"><span class="header-section-number">3.4</span> Practical Example: Looping Over Shapefile Names in a Folder</h2>
 <p>In GIS automation, we often need to process multiple shapefiles.<br>
 This example demonstrates looping through shapefiles using ArcPy.</p>
-<div id="46abd25e" class="cell" data-execution_count="7">
+<div id="dd87ca94" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arcpy</span>
@@ -400,7 +429,7 @@ Shapefile found: natural.shp
  - Feature Count: 16
 Shapefile found: places.shp
  - Shape Type: Point
- - Feature Count: 47
+ - Feature Count: 55
 Shapefile found: points.shp
  - Shape Type: Point
  - Feature Count: 344
@@ -410,23 +439,55 @@ Shapefile found: railways.shp
 Shapefile found: roads.shp
  - Shape Type: Polyline
  - Feature Count: 2826
+Shapefile found: roads_buffer.shp
+ - Shape Type: Polygon
+ - Feature Count: 2826
+Shapefile found: roads_buffer_1.shp
+ - Shape Type: Polygon
+ - Feature Count: 2826
+Shapefile found: roads_buffer_alias_style.shp
+ - Shape Type: Polygon
+ - Feature Count: 2826
+Shapefile found: roads_buffer_clipped.shp
+ - Shape Type: Polygon
+ - Feature Count: 1864
+Shapefile found: roads_buffer_module_style.shp
+ - Shape Type: Polygon
+ - Feature Count: 2826
+Shapefile found: roads_final.shp
+ - Shape Type: Polygon
+ - Feature Count: 39
 Shapefile found: roads_utm44n.shp
  - Shape Type: Polyline
  - Feature Count: 2826
 Shapefile found: waterways.shp
  - Shape Type: Polyline
- - Feature Count: 18</code></pre>
+ - Feature Count: 18
+Shapefile found: zones.shp
+ - Shape Type: Polygon
+ - Feature Count: 4
+Shapefile found: zones_dissolved.shp
+ - Shape Type: Polygon
+ - Feature Count: 1
+Shapefile found: zones_utm.shp
+ - Shape Type: Polygon
+ - Feature Count: 4</code></pre>
 </div>
 </div>
 <hr>
 </section>
 <section id="summary" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="summary"><span class="header-section-number">3.5</span> Summary</h2>
-<p>In this chapter, we learned:<br>
-- How to use <strong>if-else conditions</strong>.<br>
-- How to write <strong>for</strong> and <strong>while</strong> loops.<br>
-- How to iterate through <strong>lists</strong> and <strong>dictionaries</strong>.<br>
-- A practical example of looping through shapefiles in a folder.</p>
+<p>In this chapter, we learned:</p>
+<ul>
+<li>How to use <strong>if-else conditions</strong>.<br>
+</li>
+<li>How to write <strong>for</strong> and <strong>while</strong> loops.<br>
+</li>
+<li>How to iterate through <strong>lists</strong> and <strong>dictionaries</strong>.<br>
+</li>
+<li>A practical example of looping through shapefiles in a folder.</li>
+</ul>
 <hr>
 </section>
 <section id="exercise" class="level2" data-number="3.6">

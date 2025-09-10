@@ -2,26 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lakshmikantakumar.github.io/arcpy/index.html</loc>
-    <lastmod>2025-09-08T11:30:03.556Z</lastmod>
+    <lastmod>2025-09-08T11:33:55.171Z</lastmod>
   </url>
   <url>
     <loc>https://lakshmikantakumar.github.io/arcpy/chapters/part_1/chapter1_intro_python_gis.html</loc>
-    <lastmod>2025-09-07T08:10:29.851Z</lastmod>
+    <lastmod>2025-09-10T07:13:24.324Z</lastmod>
   </url>
   <url>
     <loc>https://lakshmikantakumar.github.io/arcpy/chapters/part_1/chapter2_python_basics_refresher.html</loc>
-    <lastmod>2025-09-08T06:57:21.412Z</lastmod>
+    <lastmod>2025-09-10T07:13:50.065Z</lastmod>
   </url>
   <url>
     <loc>https://lakshmikantakumar.github.io/arcpy/chapters/part_1/chapter3_control_structures.html</loc>
-    <lastmod>2025-09-08T06:57:23.971Z</lastmod>
+    <lastmod>2025-09-10T07:14:12.016Z</lastmod>
   </url>
   <url>
     <loc>https://lakshmikantakumar.github.io/arcpy/chapters/part_1/chapter4_functions_modules.html</loc>
-    <lastmod>2025-09-08T07:01:54.317Z</lastmod>
+    <lastmod>2025-09-10T07:14:42.826Z</lastmod>
   </url>
   <url>
     <loc>https://lakshmikantakumar.github.io/arcpy/chapters/part_1/chapter5_error_handling_exceptions.html</loc>
-    <lastmod>2025-09-08T09:22:55.375Z</lastmod>
+    <lastmod>2025-09-10T07:15:09.979Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lakshmikantakumar.github.io/arcpy/chapters/part_2/chapter6_introduction_arcpy.html</loc>
+    <lastmod>2025-09-10T07:24:12.620Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lakshmikantakumar.github.io/arcpy/chapters/part_2/chapter7_working_with_spatial_data.html</loc>
+    <lastmod>2025-09-10T07:30:27.327Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lakshmikantakumar.github.io/arcpy/chapters/part_2/chapter8_attribute_table_operations.html</loc>
+    <lastmod>2025-09-10T07:22:56.688Z</lastmod>
   </url>
 </urlset>

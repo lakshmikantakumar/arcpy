@@ -1,0 +1,143 @@
+# Attribute Table Operations in ArcPy
+
+In this chapter, we will learn how to interact with attribute tables in ArcGIS using ArcPy.  
+ArcPy provides different types of **cursors** to read, update, and insert data into attribute tables.
+
+---
+
+## Reading Field Names
+
+We can list the fields of a feature class or shapefile using `arcpy.ListFields()`.
+
+```{python}
+import arcpy
+
+
+# Set the workspace where your data resides
+arcpy.env.workspace = r"D:/GIS_Data/OSM/shape"
+
+fc = "roads.shp"
+
+fields = arcpy.ListFields(fc)
+print("Fields in", fc, ":")
+for field in fields:
+    print("-", field.name, "(", field.type, ")")
+```
+
+---
+
+## Data Access Using `arcpy.da` Cursors
+
+The modern, efficient way to read/write attributes and geometry is through the `arcpy.da` (Data Access) cursors: `SearchCursor`, `UpdateCursor`, and `InsertCursor`.
+
+### Cursor Types
+
+| Cursor Type      | Purpose |
+|------------------|------------------------------------------|
+| `SearchCursor`   | Read-only access to feature attributes/geometry |
+| `UpdateCursor`   | Read and update existing rows |
+| `InsertCursor`   | Add new rows to a table/feature class |
+
+These replace older cursor methods and are significantly faster and more robust.
+
+---
+
+### Example: Read Geometry with `SearchCursor`
+
+```{python}
+import arcpy
+
+# Set the workspace where your data resides
+arcpy.env.workspace = r"D:/GIS_Data/OSM/shape"
+
+fc = "zones.shp"
+with arcpy.da.SearchCursor(fc, ["SHAPE@"]) as cursor:
+    for row in cursor:
+        geom = row[0]
+        print("Feature type:", geom.type)
+        print("Area:", geom.area)
+        print("Length:", geom.length)
+        break  # Show only the first feature
+```
+
+> **Note:** Use geometry tokens like `SHAPE@XY`, `SHAPE@AREA`, `SHAPE@LENGTH` for more efficient access.
+
+---
+
+### Practical: Count Features & Add Area Field
+
+```{python}
+import arcpy
+
+# Set the workspace where your data resides
+arcpy.env.workspace = r"D:/GIS_Data/OSM/shape"
+
+fc = "zones.shp"
+
+# Count features
+count = int(arcpy.management.GetCount(fc).getOutput(0))
+print("Feature count:", count)
+
+# Add a new field if not exists
+fields = [f.name for f in arcpy.ListFields(fc)]
+if "Area_Ha" not in fields:
+    arcpy.management.AddField(fc, "Area_Ha", "DOUBLE")
+
+# Update area in hectares
+with arcpy.da.UpdateCursor(fc, ["SHAPE@", "Area_Ha"]) as cursor:
+    for row in cursor:
+        row[1] = row[0].area / 10000  # Convert m² to ha
+        cursor.updateRow(row)
+
+print("Added/updated 'Area_Ha' field.")
+```
+
+---
+
+### Example: Insert Rows with `InsertCursor`
+
+```{python}
+import arcpy
+
+# Set the workspace where your data resides
+arcpy.env.workspace = r"D:/GIS_Data/OSM/shape"
+
+fc = "places.shp"
+fields = ["SHAPE@XY", "Name"]
+
+with arcpy.da.InsertCursor(fc, fields) as cursor:
+    cursor.insertRow(((78.5548245, 17.4041281), "NIGST"))
+    cursor.insertRow(((78.5523354, 17.4047443), "Everest Hostel"))
+
+print("Inserted points successfully.")
+```
+
+![Insert Rows with InsertCursor](fig/insert_rows.png){#insert fig-align="center" width=70%}
+
+Use the correct cursor type depending on your use case.
+
+---
+
+## Summary
+
+In this chapter, we learned: 
+ 
+- How to read **field names** using `arcpy.ListFields()`.  
+- How to use `arcpy.da` cursors:
+  - `SearchCursor` for reading attributes and geometry
+  - `UpdateCursor` for modifying attribute values
+  - `InsertCursor` for adding new features or rows
+  - Geometry tokens for efficient access
+- A practical example of updating attribute values. 
+
+---
+
+## Exercise
+
+Try the following tasks:  
+
+1. Use a SearchCursor to print the first 10 rows of the attribute table.  
+2. Add a new field `Perimeter` and calculate polygon perimeters using UpdateCursor.  
+3. Use an InsertCursor to add a new point feature with coordinates and a name attribute.  
+
+---

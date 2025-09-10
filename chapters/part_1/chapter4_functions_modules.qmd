@@ -37,6 +37,7 @@ def function_name(parameters):
 A **function** is a block of code that runs only when called. Functions can take inputs (parameters) and return outputs.
 
 ### Example: A simple function
+
 ```{python}
 # Simple function without parameters
 def say_hello():
@@ -80,6 +81,7 @@ Instead of writing everything yourself, you can **import** modules to get additi
 
 We use the **`import` keyword** to bring a module into our program.  
 You can:  
+
 - Import the whole module → `import os`  
 - Import with an alias → `import numpy as np`  
 - Import specific functions → `from math import sqrt`  
@@ -87,7 +89,8 @@ You can:
 
 ### Example: The `os` Module (Operating System)
 
-The `os` module provides functions to interact with the operating system:  
+The `os` module provides functions to interact with the operating system: 
+ 
 - Work with files and directories  
 - Join paths in a cross-platform way  
 - Check if files exist  
@@ -138,7 +141,9 @@ def buffer_features(input_fc, output_fc, distance):
     print(f"Buffer created: {output_fc}")
 
 # Example usage (adjust file paths as needed)
+
 arcpy.env.workspace = r"D:/GIS_Data/OSM/shape"
+arcpy.env.overwriteOutput = True
 buffer_features("roads_utm44n.shp", "roads_buffer_1.shp", "50 Meters")
 ```
 
@@ -147,6 +152,7 @@ buffer_features("roads_utm44n.shp", "roads_buffer_1.shp", "50 Meters")
 ## Summary
 
 In this chapter, we learned:  
+
 - How to define and use **functions**.  
 - How to use built-in modules like **os** and **sys**.  
 - How to import and use **ArcPy** in scripts.  

@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "arcpy",
+    "title": "ArcPy",
     "section": "",
-    "text": "Preface\nGeoinformatics is a multidisciplinary field that combines spatial data collection, management, analysis, and visualization. It brings together tools and methods from cartography, remote sensing, surveying, computer science, and data analysis to address problems related to land, water, environment, and infrastructure. As the amount of spatial data continues to increase, there is a need for efficient ways to manage and process this information.\nPython programming is widely used in scientific computing and is also integrated into Geoinformatics applications. In the ArcGIS Pro environment, Python—through the ArcPy site package, enables analysts and researchers to automate workflows, conduct spatial analysis, and extend existing functionality.\nThe objective of this course, Geospatial Analysis with Python in ArcGIS, is to provide learners with an introduction to Python programming and its application to Geoinformatics tasks. The material is organized to build understanding in a gradual way:\n\nPart 1: Python Foundations for Geoinformatics introduces the essentials of Python programming, including variables, control structures, functions, modules, and error handling.\n\nPart 2: Working with ArcPy explains how Python integrates with ArcGIS, focusing on geoprocessing tools, attribute table operations, spatial data handling, and raster analysis.\n\nPart 3: Applied Workflows presents examples of automation, spatial analysis, and task-oriented scripting.\n\nEach chapter includes examples, practice exercises, and Geoinformatics use cases to connect Python concepts with spatial data applications. By working through the material, learners will be able to:\n\nUnderstand the basics of Python programming in the context of Geoinformatics.\n\nUse ArcPy to carry out geoprocessing tasks.\n\nWrite scripts that process both vector and raster data.\n\nDevelop workflows to improve efficiency and reduce manual repetition.\n\nThe course is designed for students, professionals, and researchers with an interest in Geoinformatics who wish to enhance their technical skills. A general familiarity with ArcGIS software is helpful, but prior programming experience is not required.\nThese lecture notes aim to support learners in building a foundation in Python for Geoinformatics and in applying these skills to common tasks in ArcGIS Pro.",
+    "text": "Preface\nGeoinformatics is a multidisciplinary field that combines spatial data collection, management, analysis, and visualization. It brings together tools and methods from cartography, remote sensing, surveying, computer science, and data analysis to address problems related to land, water, environment, and infrastructure. As the amount of spatial data continues to increase, there is a need for efficient ways to manage and process this information.\nPython programming is widely used in scientific computing and is also integrated into Geoinformatics applications. In the ArcGIS Pro environment, Python through the ArcPy site package, enables analysts and researchers to automate workflows, conduct spatial analysis, and extend existing functionality.\nThe objective of this course, Geospatial Analysis with Python in ArcGIS, is to provide learners with an introduction to Python programming and its application to Geoinformatics tasks. The material is organized to build understanding in a gradual way:\n\nPart 1: Python Foundations for Geoinformatics introduces the essentials of Python programming, including variables, control structures, functions, modules, and error handling.\n\nPart 2: Working with ArcPy explains how Python integrates with ArcGIS, focusing on geoprocessing tools, attribute table operations, spatial data handling, and raster analysis.\n\nPart 3: Applied Workflows presents examples of automation, spatial analysis, and task-oriented scripting.\n\nEach chapter includes examples, practice exercises, and Geoinformatics use cases to connect Python concepts with spatial data applications. By working through the material, learners will be able to:\n\nUnderstand the basics of Python programming in the context of Geoinformatics.\n\nUse ArcPy to carry out geoprocessing tasks.\n\nWrite scripts that process both vector and raster data.\n\nDevelop workflows to improve efficiency and reduce manual repetition.\n\nThe course is designed for students, professionals, and researchers with an interest in Geoinformatics who wish to enhance their technical skills. A general familiarity with ArcGIS software is helpful, but prior programming experience is not required.\nThese lecture notes aim to support learners in building a foundation in Python for Geoinformatics and in applying these skills to common tasks in ArcGIS Pro.",
     "crumbs": [
       "Preface"
     ]
@@ -80,7 +80,7 @@
     "href": "chapters/part_1/chapter1_intro_python_gis.html#example-list-feature-classes-in-a-folder",
     "title": "1  Introduction to Python for GIS",
     "section": "1.6 Example: List Feature Classes in a Folder",
-    "text": "1.6 Example: List Feature Classes in a Folder\nLet’s try a small GIS-related script using ArcPy.\n\n\nCode\nimport arcpy\n\n# Set workspace (change path to your local GIS data folder)\narcpy.env.workspace = r\"D:\\GIS_Data\\OSM\\shape\"\n\n# List all feature classes\nfeature_classes = arcpy.ListFeatureClasses()\n\nprint(\"Feature Classes in workspace:\")\nfor fc in feature_classes:\n    print(\"-\", fc)\n\n\nFeature Classes in workspace:\n- buildings.shp\n- landuse.shp\n- natural.shp\n- places.shp\n- points.shp\n- railways.shp\n- roads.shp\n- roads_buffer.shp\n- roads_buffer_1.shp\n- roads_utm44n.shp\n- waterways.shp",
+    "text": "1.6 Example: List Feature Classes in a Folder\nLet’s try a small GIS-related script using ArcPy.\n\n\nCode\nimport arcpy\n\n# Set workspace (change path to your local GIS data folder)\narcpy.env.workspace = r\"D:\\GIS_Data\\OSM\\shape\"\n\n# List all feature classes\nfeature_classes = arcpy.ListFeatureClasses()\n\nprint(\"Feature Classes in workspace:\")\nfor fc in feature_classes:\n    print(\"-\", fc)\n\n\nFeature Classes in workspace:\n- buildings.shp\n- landuse.shp\n- natural.shp\n- places.shp\n- points.shp\n- railways.shp\n- roads.shp\n- roads_buffer.shp\n- roads_buffer_1.shp\n- roads_buffer_alias_style.shp\n- roads_buffer_clipped.shp\n- roads_buffer_module_style.shp\n- roads_final.shp\n- roads_utm44n.shp\n- waterways.shp\n- zones.shp\n- zones_dissolved.shp\n- zones_utm.shp",
     "crumbs": [
       "Part 1: Python Foundations for GIS",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python for GIS</span>"
@@ -179,7 +179,7 @@
     "href": "chapters/part_1/chapter2_python_basics_refresher.html#summary",
     "title": "2  Python Basics",
     "section": "2.5 Summary",
-    "text": "2.5 Summary\nIn this chapter, we reviewed:\n- Variables and common data types in Python.\n- Basic operators and expressions.\n- Simple input/output programs.\n- String operations useful for GIS tasks.",
+    "text": "2.5 Summary\nIn this chapter, we reviewed:\n\nVariables and common data types in Python.\n\nBasic operators and expressions.\n\nSimple input/output programs.\n\nString operations useful for GIS tasks.",
     "crumbs": [
       "Part 1: Python Foundations for GIS",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Python Basics</span>"
@@ -234,7 +234,7 @@
     "href": "chapters/part_1/chapter3_control_structures.html#practical-example-looping-over-shapefile-names-in-a-folder",
     "title": "3  Control Structures in Python",
     "section": "3.4 Practical Example: Looping Over Shapefile Names in a Folder",
-    "text": "3.4 Practical Example: Looping Over Shapefile Names in a Folder\nIn GIS automation, we often need to process multiple shapefiles.\nThis example demonstrates looping through shapefiles using ArcPy.\n\n\nCode\nimport arcpy\n\n# Set workspace folder containing shapefiles\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\n# List all shapefiles in the folder\nshapefiles = arcpy.ListFeatureClasses()\n\nfor shp in shapefiles:\n    print(\"Shapefile found:\", shp)\n    # Example: describe each shapefile\n    desc = arcpy.Describe(shp)\n    print(\" - Shape Type:\", desc.shapeType)\n    print(\" - Feature Count:\", arcpy.GetCount_management(shp))\n\n\nShapefile found: buildings.shp\n - Shape Type: Polygon\n - Feature Count: 19884\nShapefile found: landuse.shp\n - Shape Type: Polygon\n - Feature Count: 43\nShapefile found: natural.shp\n - Shape Type: Polygon\n - Feature Count: 16\nShapefile found: places.shp\n - Shape Type: Point\n - Feature Count: 47\nShapefile found: points.shp\n - Shape Type: Point\n - Feature Count: 344\nShapefile found: railways.shp\n - Shape Type: Polyline\n - Feature Count: 84\nShapefile found: roads.shp\n - Shape Type: Polyline\n - Feature Count: 2826\nShapefile found: roads_utm44n.shp\n - Shape Type: Polyline\n - Feature Count: 2826\nShapefile found: waterways.shp\n - Shape Type: Polyline\n - Feature Count: 18",
+    "text": "3.4 Practical Example: Looping Over Shapefile Names in a Folder\nIn GIS automation, we often need to process multiple shapefiles.\nThis example demonstrates looping through shapefiles using ArcPy.\n\n\nCode\nimport arcpy\n\n# Set workspace folder containing shapefiles\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\n# List all shapefiles in the folder\nshapefiles = arcpy.ListFeatureClasses()\n\nfor shp in shapefiles:\n    print(\"Shapefile found:\", shp)\n    # Example: describe each shapefile\n    desc = arcpy.Describe(shp)\n    print(\" - Shape Type:\", desc.shapeType)\n    print(\" - Feature Count:\", arcpy.GetCount_management(shp))\n\n\nShapefile found: buildings.shp\n - Shape Type: Polygon\n - Feature Count: 19884\nShapefile found: landuse.shp\n - Shape Type: Polygon\n - Feature Count: 43\nShapefile found: natural.shp\n - Shape Type: Polygon\n - Feature Count: 16\nShapefile found: places.shp\n - Shape Type: Point\n - Feature Count: 55\nShapefile found: points.shp\n - Shape Type: Point\n - Feature Count: 344\nShapefile found: railways.shp\n - Shape Type: Polyline\n - Feature Count: 84\nShapefile found: roads.shp\n - Shape Type: Polyline\n - Feature Count: 2826\nShapefile found: roads_buffer.shp\n - Shape Type: Polygon\n - Feature Count: 2826\nShapefile found: roads_buffer_1.shp\n - Shape Type: Polygon\n - Feature Count: 2826\nShapefile found: roads_buffer_alias_style.shp\n - Shape Type: Polygon\n - Feature Count: 2826\nShapefile found: roads_buffer_clipped.shp\n - Shape Type: Polygon\n - Feature Count: 1864\nShapefile found: roads_buffer_module_style.shp\n - Shape Type: Polygon\n - Feature Count: 2826\nShapefile found: roads_final.shp\n - Shape Type: Polygon\n - Feature Count: 39\nShapefile found: roads_utm44n.shp\n - Shape Type: Polyline\n - Feature Count: 2826\nShapefile found: waterways.shp\n - Shape Type: Polyline\n - Feature Count: 18\nShapefile found: zones.shp\n - Shape Type: Polygon\n - Feature Count: 4\nShapefile found: zones_dissolved.shp\n - Shape Type: Polygon\n - Feature Count: 1\nShapefile found: zones_utm.shp\n - Shape Type: Polygon\n - Feature Count: 4",
     "crumbs": [
       "Part 1: Python Foundations for GIS",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Structures in Python</span>"
@@ -245,7 +245,7 @@
     "href": "chapters/part_1/chapter3_control_structures.html#summary",
     "title": "3  Control Structures in Python",
     "section": "3.5 Summary",
-    "text": "3.5 Summary\nIn this chapter, we learned:\n- How to use if-else conditions.\n- How to write for and while loops.\n- How to iterate through lists and dictionaries.\n- A practical example of looping through shapefiles in a folder.",
+    "text": "3.5 Summary\nIn this chapter, we learned:\n\nHow to use if-else conditions.\n\nHow to write for and while loops.\n\nHow to iterate through lists and dictionaries.\n\nA practical example of looping through shapefiles in a folder.",
     "crumbs": [
       "Part 1: Python Foundations for GIS",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Structures in Python</span>"
@@ -300,7 +300,7 @@
     "href": "chapters/part_1/chapter4_functions_modules.html#using-modules-in-python",
     "title": "4  Functions and Modules in Python",
     "section": "4.3 Using Modules in Python",
-    "text": "4.3 Using Modules in Python\nA module is a file that contains Python code (functions, classes, variables) which you can use in your programs.\nInstead of writing everything yourself, you can import modules to get additional functionality.\n\n4.3.1 Importing a Module\nWe use the import keyword to bring a module into our program.\nYou can:\n- Import the whole module → import os\n- Import with an alias → import numpy as np\n- Import specific functions → from math import sqrt\n\n\n4.3.2 Example: The os Module (Operating System)\nThe os module provides functions to interact with the operating system:\n- Work with files and directories\n- Join paths in a cross-platform way\n- Check if files exist\n\n\nCode\nimport os\n\npath = \"D:/GIS_Data/OSM/shape/roads.shp\"\n\nprint(\"File name:\", os.path.basename(path))\nprint(\"Directory:\", os.path.dirname(path))\nprint(\"Does file exist?\", os.path.exists(path))\n\n\nFile name: roads.shp\nDirectory: D:/GIS_Data/OSM/shape\nDoes file exist? True",
+    "text": "4.3 Using Modules in Python\nA module is a file that contains Python code (functions, classes, variables) which you can use in your programs.\nInstead of writing everything yourself, you can import modules to get additional functionality.\n\n4.3.1 Importing a Module\nWe use the import keyword to bring a module into our program.\nYou can:\n\nImport the whole module → import os\n\nImport with an alias → import numpy as np\n\nImport specific functions → from math import sqrt\n\n\n\n4.3.2 Example: The os Module (Operating System)\nThe os module provides functions to interact with the operating system:\n\nWork with files and directories\n\nJoin paths in a cross-platform way\n\nCheck if files exist\n\n\n\nCode\nimport os\n\npath = \"D:/GIS_Data/OSM/shape/roads.shp\"\n\nprint(\"File name:\", os.path.basename(path))\nprint(\"Directory:\", os.path.dirname(path))\nprint(\"Does file exist?\", os.path.exists(path))\n\n\nFile name: roads.shp\nDirectory: D:/GIS_Data/OSM/shape\nDoes file exist? True",
     "crumbs": [
       "Part 1: Python Foundations for GIS",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Functions and Modules in Python</span>"
@@ -322,7 +322,7 @@
     "href": "chapters/part_1/chapter4_functions_modules.html#example-a-simple-buffer-function",
     "title": "4  Functions and Modules in Python",
     "section": "4.5 Example: A Simple Buffer Function",
-    "text": "4.5 Example: A Simple Buffer Function\nLet’s create a function that performs a buffer operation on a shapefile.\n\n\nCode\nimport arcpy\n\ndef buffer_features(input_fc, output_fc, distance):\n    \"\"\"Creates a buffer around input features.\n    \n    Parameters:\n        input_fc (str): Input feature class (shapefile/FC)\n        output_fc (str): Output feature class path\n        distance (str): Buffer distance (e.g., \"50 Meters\")\n    \"\"\"\n    arcpy.analysis.Buffer(input_fc, output_fc, distance)\n    print(f\"Buffer created: {output_fc}\")\n\n# Example usage (adjust file paths as needed)\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\nbuffer_features(\"roads_utm44n.shp\", \"roads_buffer_1.shp\", \"50 Meters\")\n\n\nBuffer created: roads_buffer_1.shp",
+    "text": "4.5 Example: A Simple Buffer Function\nLet’s create a function that performs a buffer operation on a shapefile.\n\n\nCode\nimport arcpy\n\ndef buffer_features(input_fc, output_fc, distance):\n    \"\"\"Creates a buffer around input features.\n    \n    Parameters:\n        input_fc (str): Input feature class (shapefile/FC)\n        output_fc (str): Output feature class path\n        distance (str): Buffer distance (e.g., \"50 Meters\")\n    \"\"\"\n    arcpy.analysis.Buffer(input_fc, output_fc, distance)\n    print(f\"Buffer created: {output_fc}\")\n\n# Example usage (adjust file paths as needed)\n\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\narcpy.env.overwriteOutput = True\nbuffer_features(\"roads_utm44n.shp\", \"roads_buffer_1.shp\", \"50 Meters\")\n\n\nBuffer created: roads_buffer_1.shp",
     "crumbs": [
       "Part 1: Python Foundations for GIS",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Functions and Modules in Python</span>"
@@ -333,7 +333,7 @@
     "href": "chapters/part_1/chapter4_functions_modules.html#summary",
     "title": "4  Functions and Modules in Python",
     "section": "4.6 Summary",
-    "text": "4.6 Summary\nIn this chapter, we learned:\n- How to define and use functions.\n- How to use built-in modules like os and sys.\n- How to import and use ArcPy in scripts.\n- How to write a buffer function for automation.",
+    "text": "4.6 Summary\nIn this chapter, we learned:\n\nHow to define and use functions.\n\nHow to use built-in modules like os and sys.\n\nHow to import and use ArcPy in scripts.\n\nHow to write a buffer function for automation.",
     "crumbs": [
       "Part 1: Python Foundations for GIS",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Functions and Modules in Python</span>"
@@ -432,7 +432,7 @@
     "href": "chapters/part_1/chapter5_error_handling_exceptions.html#practical-example-safe-buffer-script",
     "title": "5  Error Handling and Exceptions",
     "section": "5.7 Practical Example: Safe Buffer Script",
-    "text": "5.7 Practical Example: Safe Buffer Script\n\n\nCode\nimport arcpy\n\ndef safe_buffer(input_fc, output_fc, distance):\n    try:\n        arcpy.Buffer_analysis(input_fc, output_fc, distance)\n        print(f\"Buffer created: {output_fc}\")\n    except arcpy.ExecuteError:\n        print(\"Buffer tool failed:\", arcpy.GetMessages(2))\n    except Exception as e:\n        print(\"Unexpected error:\", e)\n\n# Example usage\nsafe_buffer(\"roads.shp\", \"roads_buffer.shp\", \"50 Meters\")\n\n\nBuffer created: roads_buffer.shp",
+    "text": "5.7 Practical Example: Safe Buffer Script\n\n\nCode\nimport arcpy\n\ndef safe_buffer(input_fc, output_fc, distance):\n    try:\n        arcpy.Buffer_analysis(input_fc, output_fc, distance)\n        print(f\"Buffer created: {output_fc}\")\n    except arcpy.ExecuteError:\n        print(\"Buffer tool failed:\", arcpy.GetMessages(2))\n    except Exception as e:\n        print(\"Unexpected error:\", e)\n\n# Example usage\nsafe_buffer(\"roads.shp\", \"roads_buffer.shp\", \"50 Meters\")\n\n\nBuffer tool failed: Failed to execute. Parameters are not valid.\nERROR 000725: Output Feature Class: Dataset D:/GIS_Data/OSM/shape/roads_buffer.shp already exists.\nFailed to execute (Buffer).",
     "crumbs": [
       "Part 1: Python Foundations for GIS",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
@@ -454,7 +454,7 @@
     "href": "chapters/part_1/chapter5_error_handling_exceptions.html#summary",
     "title": "5  Error Handling and Exceptions",
     "section": "5.9 Summary",
-    "text": "5.9 Summary\nIn this chapter, we learned:\n- What exceptions are and why they occur.\n- How to use try–except–finally for error handling.\n- How to raise exceptions deliberately.\n- How to handle ArcPy errors with arcpy.ExecuteError.\n- A practical GIS example: a safe buffer script with error handling.\n- A quick reference table of common exceptions in Python and ArcPy.",
+    "text": "5.9 Summary\nIn this chapter, we learned:\n\nWhat exceptions are and why they occur.\n\nHow to use try–except–finally for error handling.\n\nHow to raise exceptions deliberately.\n\nHow to handle ArcPy errors with arcpy.ExecuteError.\n\nA practical GIS example: a safe buffer script with error handling.\n\nA quick reference table of common exceptions in Python and ArcPy.",
     "crumbs": [
       "Part 1: Python Foundations for GIS",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
@@ -469,6 +469,215 @@
     "crumbs": [
       "Part 1: Python Foundations for GIS",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling and Exceptions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter6_introduction_arcpy.html",
+    "href": "chapters/part_2/chapter6_introduction_arcpy.html",
+    "title": "6  Introduction to ArcPy",
+    "section": "",
+    "text": "6.1 ArcPy Site Package\nArcPy is a Python site package provided with ArcGIS that allows you to automate geoprocessing tasks, perform spatial analysis, and manage spatial data.\nBy learning ArcPy, you can reduce repetitive manual work in ArcGIS and create reproducible workflows that are easy to share and maintain.\nArcPy provides access to almost all geoprocessing tools available in ArcGIS.\nWith ArcPy, you can:\nCode\nimport arcpy\n\n# Check ArcPy installation details\n# GetInstallInfo() returns a dictionary with version and product details\ninfo = arcpy.GetInstallInfo()\n\nprint(\"ArcPy Version:\", info[\"Version\"])\nprint(\"Product Name:\", info[\"ProductName\"])\n\n\nArcPy Version: 3.4\nProduct Name: ArcGISPro",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduction to ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter6_introduction_arcpy.html#arcpy-site-package",
+    "href": "chapters/part_2/chapter6_introduction_arcpy.html#arcpy-site-package",
+    "title": "6  Introduction to ArcPy",
+    "section": "",
+    "text": "Perform spatial analysis (Buffer, Clip, Intersect, Overlay, etc.)\n\nAutomate map production and data management\n\nAccess and manipulate spatial datasets (shapefiles, feature classes, rasters)\n\nBuild custom workflows and scripts for repeated tasks",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduction to ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter6_introduction_arcpy.html#the-arcpy.env-workspace-overwriting-outputs",
+    "href": "chapters/part_2/chapter6_introduction_arcpy.html#the-arcpy.env-workspace-overwriting-outputs",
+    "title": "6  Introduction to ArcPy",
+    "section": "6.2 The arcpy.env Workspace & Overwriting Outputs",
+    "text": "6.2 The arcpy.env Workspace & Overwriting Outputs\nArcPy uses an environment workspace (arcpy.env.workspace) to know where to read inputs and save outputs. By default, if you give only a filename (not a full path), ArcPy assumes it is inside the workspace.\nYou can also allow scripts to overwrite outputs using arcpy.env.overwriteOutput which is convenient for development and testing.\n\n\nCode\nimport arcpy\n\n# Set the workspace (where your input feature classes are stored)\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\n# Allow overwriting existing outputs (useful when re-running scripts during development)\narcpy.env.overwriteOutput = True\n\n# Example: dissolve polygons based on an attribute field\narcpy.Dissolve_management(\"zones.shp\", \"zones_dissolved.shp\", \"Type\")\n\nprint(\"Dissolve completed successfully!\")\n\n\nDissolve completed successfully!\n\n\n\n\n\nDissolve",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduction to ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter6_introduction_arcpy.html#arcgis-geoprocessing-tools-in-python",
+    "href": "chapters/part_2/chapter6_introduction_arcpy.html#arcgis-geoprocessing-tools-in-python",
+    "title": "6  Introduction to ArcPy",
+    "section": "6.3 ArcGIS Geoprocessing Tools in Python",
+    "text": "6.3 ArcGIS Geoprocessing Tools in Python\nIn ArcPy, geoprocessing tools are organized in two equivalent ways. You can call tools either directly from the arcpy namespace using the toolbox alias suffix, or from a module that matches the toolbox name. Both approaches execute the same underlying tool; choice depends on readability and coding style.\n\n6.3.1 Two equivalent access styles\n\nToolbox-alias style (older / widely seen in scripts)\narcpy.GetCount_management(in_features)\nHere the tool name is GetCount and _management indicates it belongs to the Data Management toolbox. The function is attached directly to the arcpy namespace with the toolbox suffix.\nModule-based style (cleaner, recommended for readability)\narcpy.management.GetCount(in_features)\nIn this style tools are grouped by toolbox module (e.g., management, analysis, conversion) which helps organize code and makes it clearer which toolbox a tool belongs to.\n\n\nTip: Dragging a tool from the Geoprocessing pane in ArcGIS Pro to the Python window inserts a working function call showing the preferred syntax and parameter names for that tool.\n\n\n\n\n6.3.2 Example: Get Feature Count (both styles)\n\n\nCode\nimport arcpy\n\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\n# Option 1: Toolbox-alias style\ncount1 = arcpy.GetCount_management(\"roads.shp\")\nprint(\"Count (alias style):\", int(count1.getOutput(0)))\n\n# Option 2: Module-based style\ncount2 = arcpy.management.GetCount(\"roads.shp\")\nprint(\"Count (module style):\", int(count2.getOutput(0)))\n\n\nCount (alias style): 2826\nCount (module style): 2826\n\n\nBoth return the same count — getOutput(0) extracts the tool’s primary return value (a string), so we convert it to int for numeric use.\n\n\n\nAttribute table showing count\n\n\n\n\n\n6.3.3 Example: Buffer Tool (two styles)\n\n\nCode\nimport arcpy\n\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\narcpy.env.overwriteOutput = True\n\n# Option 1: Alias style\narcpy.Buffer_analysis(\"roads.shp\", \"roads_buffer_alias_style.shp\", \"50 Meters\")\n\n# Option 2: Module style\narcpy.analysis.Buffer(\"roads.shp\", \"roads_buffer_module_style.shp\", \"50 Meters\")\n\nprint(\"Buffer created successfully in both styles!\")\n\n\nBuffer created successfully in both styles!\n\n\nBoth commands create buffer outputs; the module style (e.g., arcpy.analysis.Buffer) groups the tool under its toolbox for clearer code organization.\n\n\n\nAlias style and Module style",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduction to ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter6_introduction_arcpy.html#getting-tool-documentation",
+    "href": "chapters/part_2/chapter6_introduction_arcpy.html#getting-tool-documentation",
+    "title": "6  Introduction to ArcPy",
+    "section": "6.4 Getting Tool Documentation",
+    "text": "6.4 Getting Tool Documentation\nArcPy provides access to help/documentation for each tool, which is useful to learn required parameters, optional parameters, and usage examples.\n\n\nCode\nimport arcpy\n\n# Get Python help for the Buffer tool\nhelp(arcpy.Buffer_analysis)\n\n# You can also examine the tool's parameter list programmatically\ntool = arcpy.Buffer_analysis\nprint(\"Tool name:\", tool.__name__)\n# Note: Certain introspection methods may vary; use ArcGIS Pro help for comprehensive docs.\n\n\nHelp on function Buffer in module arcpy.analysis:\n\nBuffer(in_features=None, out_feature_class=None, buffer_distance_or_field=None, line_side: \"Literal['FULL', 'LEFT', 'RIGHT', 'OUTSIDE_ONLY'] | None\" = None, line_end_type: \"Literal['ROUND', 'FLAT'] | None\" = None, dissolve_option: \"Literal['NONE', 'ALL', 'LIST'] | None\" = None, dissolve_field=None, method: \"Literal['GEODESIC', 'PLANAR'] | None\" = None) -&gt; 'Result1[str]'\n    Buffer_analysis(in_features, out_feature_class, buffer_distance_or_field, {line_side}, {line_end_type}, {dissolve_option}, {dissolve_field;dissolve_field...}, {method})\n    \n       Creates buffer polygons around input features to a specified distance.\n    \n    INPUTS:\n     in_features (Feature Layer):\n         The input point, line, or polygon features that will be buffered.\n     buffer_distance_or_field (Linear Unit / Field):\n         The distance around the input features that will be buffered.\n         Distances can be provided as either a value representing a linear\n         distance or a field from the input features that contains the distance\n         to buffer each feature.If linear units are not specified or are\n         entered as Unknown, the\n         linear unit of the input features' spatial reference will be used.When\n         specifying a distance, if the linear unit has two words, such as\n         Decimal Degrees, combine the two words into one (for example, 20\n         DecimalDegrees).\n     line_side {String}:\n         Specifies the sides of the input features that will be buffered. This\n         parameter is only supported for polygon and line features.FULL-For\n         lines, buffers will be generated on both sides of the line.\n         For polygons, buffers will be generated around the polygon and will\n         contain and overlap the area of the input features. This is the\n         default.LEFT-For lines, buffers will be generated on the topological\n         left of\n         the line. This option is not supported for polygon input\n         features.RIGHT-For lines, buffers will be generated on the topological\n         right of\n         the line. This option is not supported for polygon input\n         features.OUTSIDE_ONLY-For polygons, buffers will be generated outside\n         the input\n         polygon only (the area inside the input polygon will be erased from\n         the output buffer). This option is not supported for line input\n         features.This optional parameter is not available with a Desktop Basic\n         or\n         Desktop Standard license.\n     line_end_type {String}:\n         Specifies the shape of the buffer at the end of line input features.\n         This parameter is not valid for polygon input features.ROUND-The ends\n         of the buffer will be round, in the shape of a half\n         circle. This is the default.FLAT-The ends of the buffer will be flat\n         or squared and will end at\n         the endpoint of the input line feature.This optional parameter is not\n         available with a Desktop Basic or\n         Desktop Standard license.\n     dissolve_option {String}:\n         Specifies the type of dissolve that will be performed to remove buffer\n         overlap.NONE-An individual buffer for each feature will be maintained,\n         regardless of overlap. This is the default.ALL-All buffers will be\n         dissolved together into a single feature,\n         removing any overlap.LIST-Any buffers sharing attribute values in the\n         listed fields\n         (carried over from the input features) will be dissolved.\n     dissolve_field {Field}:\n         The list of fields from the input features on which the output buffers\n         will be dissolved. Any buffers sharing attribute values in the listed\n         fields (carried over from the input features) will be dissolved.\n     method {String}:\n         Specifies whether the planar or geodesic method will be used to create\n         the buffers. PLANAR-If the input features are in a projected\n         coordinate\n         system, Euclidean buffers will be created. If the input features are\n         in a geographic coordinate system and the buffer distance is in linear\n         units (meters, feet, and so forth, as opposed to angular units such as\n         degrees), geodesic buffers will be created. This is the default.\n         You can use the Output Coordinate System environment setting to\n         specify the coordinate system to use. For example, if the input\n         features are in a projected coordinate system, you can set the\n         environment to a geographic coordinate system to create geodesic\n         buffers.GEODESIC-All buffers will be created using a shape-preserving\n         geodesic\n         buffer method, regardless of the input coordinate system.\n    \n    OUTPUTS:\n     out_feature_class (Feature Class):\n         The feature class containing the output buffers.\n\nTool name: Buffer\n\n\nFor practical guidance, use the Geoprocessing Pane in ArcGIS Pro and drag tools to the Python window to see example calls with the correct parameter order and named arguments.",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduction to ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter6_introduction_arcpy.html#practical-example-chaining-tools-buffer-clip-dissolve",
+    "href": "chapters/part_2/chapter6_introduction_arcpy.html#practical-example-chaining-tools-buffer-clip-dissolve",
+    "title": "6  Introduction to ArcPy",
+    "section": "6.5 Practical Example: Chaining Tools (Buffer → Clip → Dissolve)",
+    "text": "6.5 Practical Example: Chaining Tools (Buffer → Clip → Dissolve)\n\n\nCode\nimport arcpy\n\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\narcpy.env.overwriteOutput = True\n\n# Step 1: Buffer roads\narcpy.analysis.Buffer(\"roads.shp\", \"roads_buffer.shp\", \"100 Meters\")\n\n# Step 2: Clip buffered roads by zones\narcpy.analysis.Clip(\"roads_buffer.shp\",\"zones.shp\", \"roads_buffer_clipped.shp\")\n\n# Step 3: Dissolve by zones to merge buffers inside each zone\narcpy.management.Dissolve(\"roads_buffer_clipped.shp\", \"roads_final.shp\", \"Name\")\n\nprint(\"Workflow completed successfully!\")\n\n\nWorkflow completed successfully!\n\n\n\n\n\nworkflow Buffer → Clip → Dissolve\n\n\n\nNotes about parameters used above: Parameter names and order differ across tools; use help() or ArcGIS Pro tool help for exact usage or ArcPro Help.",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduction to ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter6_introduction_arcpy.html#summary",
+    "href": "chapters/part_2/chapter6_introduction_arcpy.html#summary",
+    "title": "6  Introduction to ArcPy",
+    "section": "6.6 Summary",
+    "text": "6.6 Summary\nIn this chapter, we covered:\n\nTwo equivalent ways to call ArcPy geoprocessing tools: toolbox-alias style and module-based style.\n\nPractical examples showing both styles (GetCount and Buffer).\n\nHow to set arcpy.env.workspace and arcpy.env.overwriteOutput.\n\nHow to access tool documentation and use ArcGIS Pro’s Python window for example code.\n\nAn example workflow chaining Buffer → Clip → Dissolve.",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduction to ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter6_introduction_arcpy.html#exercises",
+    "href": "chapters/part_2/chapter6_introduction_arcpy.html#exercises",
+    "title": "6  Introduction to ArcPy",
+    "section": "6.7 Exercises",
+    "text": "6.7 Exercises\n\nUse arcpy.management.GetCount() to print the feature count for three different shapefiles in your workspace.\n\nWrite a script that buffers a layer, clips the buffer by a boundary, and summarizes the total buffered area per district.\n\nDrag the Intersect tool from the Geoprocessing pane to ArcGIS Pro’s Python window and paste the generated code into a script; then explain the arguments.",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduction to ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter7_working_with_spatial_data.html",
+    "href": "chapters/part_2/chapter7_working_with_spatial_data.html",
+    "title": "7  Working with Spatial Data in ArcPy",
+    "section": "",
+    "text": "7.1 Reading Datasets: Shapefiles & Feature Classes\nIn this chapter, you’ll learn how to work with vector data (shapefiles and feature classes) using ArcPy. We’ll cover how to list datasets, inspect properties, work with geometry objects, and manage spatial references.\nArcPy lists spatial datasets using ListFeatureClasses(), which requires a workspace set via arcpy.env.workspace.\nCode\nimport arcpy\n\n# Set the workspace where your data resides\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\n# List all feature classes\nfeature_classes = arcpy.ListFeatureClasses()\nprint(\"Available feature classes:\")\nfor fc in feature_classes:\n    print(\"-\", fc)\n\n\nAvailable feature classes:\n- buildings.shp\n- landuse.shp\n- natural.shp\n- places.shp\n- points.shp\n- railways.shp\n- roads.shp\n- roads_buffer.shp\n- roads_buffer_1.shp\n- roads_buffer_alias_style.shp\n- roads_buffer_clipped.shp\n- roads_buffer_module_style.shp\n- roads_final.shp\n- roads_utm44n.shp\n- waterways.shp\n- zones.shp\n- zones_dissolved.shp\n- zones_utm.shp\nYou can also filter by geometry type using the feature_type argument.\nCode\n# List only polyline (line) feature classes\nline_classes = arcpy.ListFeatureClasses(feature_type=\"Polyline\")\n\nprint(\"Available line feature classes:\")\nfor fc in line_classes:\n    print(\"-\", fc)\n\n\nAvailable line feature classes:\n- railways.shp\n- roads.shp\n- roads_utm44n.shp\n- waterways.shp",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Working with Spatial Data in ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter7_working_with_spatial_data.html#describe-dataset-properties",
+    "href": "chapters/part_2/chapter7_working_with_spatial_data.html#describe-dataset-properties",
+    "title": "7  Working with Spatial Data in ArcPy",
+    "section": "7.2 Describe Dataset Properties",
+    "text": "7.2 Describe Dataset Properties\nUse arcpy.Describe() to review dataset metadata like shape type, spatial reference, and file path.\n\n\nCode\n# Set the workspace where your data resides\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\ndesc = arcpy.Describe(\"roads.shp\")\nprint(\"Name:\", desc.name)\nprint(\"Shape Type:\", desc.shapeType)\nprint(\"Spatial Reference:\", desc.spatialReference.name)\nprint(\"Path:\", desc.catalogPath)\n\n\nName: roads.shp\nShape Type: Polyline\nSpatial Reference: GCS_WGS_1984\nPath: D:/GIS_Data/OSM/shape\\roads.shp\n\n\nOther properties you can inspect:\n\ndesc.extent → bounding box of the dataset\n\ndesc.featureType → type of dataset (e.g., Simple, Annotation)\n\ndesc.hasZ, desc.hasM → whether Z (elevation) or M (measure) values are present\n\n\n\n\nLayer Properties",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Working with Spatial Data in ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter7_working_with_spatial_data.html#accessing-geometry-objects",
+    "href": "chapters/part_2/chapter7_working_with_spatial_data.html#accessing-geometry-objects",
+    "title": "7  Working with Spatial Data in ArcPy",
+    "section": "7.3 Accessing Geometry Objects",
+    "text": "7.3 Accessing Geometry Objects\nYou can access feature geometry (points, lines, polygons) with a SearchCursor. Geometry objects provide methods and properties for spatial calculations.\n\n\nCode\nimport arcpy\n\n# Set the workspace where your data resides\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\nfc = \"zones.shp\"\n\nwith arcpy.da.SearchCursor(fc, [\"SHAPE@\"]) as cursor:\n    for row in cursor:\n        geom = row[0]\n        print(\"Geometry type:\", geom.type)\n        print(\"Area:\", geom.area)\n        print(\"Length:\", geom.length)\n        print(\"Centroid:\", geom.centroid.X, geom.centroid.Y)\n        break  # show only first feature\n\n\nGeometry type: polygon\nArea: 0.0002910697753912165\nLength: 0.07561464351089768\nCentroid: 78.5634335381928 17.409140725351428",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Working with Spatial Data in ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter7_working_with_spatial_data.html#working-with-geometry-parts",
+    "href": "chapters/part_2/chapter7_working_with_spatial_data.html#working-with-geometry-parts",
+    "title": "7  Working with Spatial Data in ArcPy",
+    "section": "7.4 Working with Geometry Parts",
+    "text": "7.4 Working with Geometry Parts\nFeatures can consist of multiple parts (e.g., islands in a polygon, disconnected line segments).\nYou can loop through parts and vertices:\n\n\nCode\n# Set the workspace where your data resides\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\nfc = \"zones.shp\"\n\nwith arcpy.da.SearchCursor(fc, [\"SHAPE@\"]) as cursor:\n    for row in cursor:\n        geom = row[0]\n        for part in geom:  # each part = list of points\n            for pnt in part:\n                if pnt:  # skip None (part breaks)\n                    print(f\"X: {pnt.X}, Y: {pnt.Y}\")\n        break  # first feature only\n\n\nX: 78.57438678251377, Y: 17.401823448168336\nX: 78.574371, Y: 17.4018198\nX: 78.5604884299274, Y: 17.40140257160883\nX: 78.5605027, Y: 17.4016735\nX: 78.5581043, Y: 17.4029838\nX: 78.5531525, Y: 17.4084755\nX: 78.54623384971909, Y: 17.414921849494384\nX: 78.574408, Y: 17.4154978\nX: 78.57438678251377, Y: 17.401823448168336",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Working with Spatial Data in ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter7_working_with_spatial_data.html#spatial-references",
+    "href": "chapters/part_2/chapter7_working_with_spatial_data.html#spatial-references",
+    "title": "7  Working with Spatial Data in ArcPy",
+    "section": "7.5 Spatial References",
+    "text": "7.5 Spatial References\nSpatial references define the coordinate system and projection of a dataset.\nArcPy allows you to check, define, and project spatial references.\n\n7.5.1 Check Spatial Reference\n\n\nCode\nimport arcpy\n\n# Set the workspace where your data resides\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\nfc = \"roads.shp\"\nsr = arcpy.Describe(fc).spatialReference\nprint(\"Spatial Reference Name:\", sr.name)\nprint(\"Is Projected?\", sr.type == \"Projected\")\nprint(\"Coordinate System Factory Code (WKID):\", sr.factoryCode)\n\n\nSpatial Reference Name: GCS_WGS_1984\nIs Projected? False\nCoordinate System Factory Code (WKID): 4326\n\n\n\n\n\nSpatial Reference\n\n\n\n\n\n7.5.2 Define Projection (if missing)\nIf a dataset has no defined spatial reference (Unknown), you can assign one using DefineProjection_management.\n\n\nCode\n# Set the workspace where your data resides\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\n# Example: Assign WGS 1984 (EPSG:4326) to a shapefile\nfc = \"waterways.shp\"\nsr = arcpy.SpatialReference(4326)\narcpy.management.DefineProjection(fc, sr)\n\nprint(\"Projection defined successfully.\")\n\n\nProjection defined successfully.\n\n\n\nImportant: Defining projection only assigns metadata. It does not change the actual coordinate values.\n\n\n\n\n7.5.3 Project Data (change coordinate system)\nTo convert data into another coordinate system, use Project_management.\n\n\nCode\n# Example: Project a shapefile from WGS84 to UTM Zone 44N\n\n# Set the workspace where your data resides\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\narcpy.env.overwriteOutput = True\n\nin_fc = \"zones.shp\"\nout_fc = \"zones_utm.shp\"\nout_sr = arcpy.SpatialReference(32644)  # EPSG code for WGS 84 / UTM Zone 44N\n\narcpy.management.Project(in_fc, out_fc, out_sr)\nprint(\"Projection transformation completed.\")\n\n\nProjection transformation completed.\n\n\n\n\n\nProject\n\n\nBatch Reprojection\nTo reproject all datasets into a common coordinate system ensures spatial operations and measurements are consistent and prevents errors from mixing projections.\n\nNotes\n\n\n\nRun this inside the ArcGIS Pro Python environment (ArcPy must be available).\nTest on a small subset of data first and keep backups.\nUpdate in_workspace, out_folder, and target_wkid before running.\n\n\n\n\nCode\n# Example: Project all vector datasets into a target coordinate system (batch)\n\nimport arcpy\nimport os\n\n# ---------- User settings ----------\n# Input workspace containing your datasets (folder with .shp or a file geodatabase path)\n# If using a file geodatabase as input, set in_workspace to that geodatabase path (the script will list FCs).\nin_workspace = r\"D:\\GIS_Data\\OSM\\shape\"\n\n# Output folder where reprojection shapefiles will be written\nout_folder = r\"D:\\GIS_Data\\OSM\\reprojected_shp\"\n\n# Target spatial reference (use EPSG/WKID). Example: UTM Zone 44N WGS84 -&gt; 32644\ntarget_wkid = 32644\n# -----------------------------------\n\n# Set environment and allow overwrite\narcpy.env.workspace = in_workspace\narcpy.env.overwriteOutput = True\n\n# Create output folder if it does not exist\nos.makedirs(out_folder, exist_ok=True)\n\n# Create target SpatialReference object\ntarget_sr = arcpy.SpatialReference(target_wkid)\n\ndef safe_shapefile_name(name):\n    \"\"\"\n    Build a safe shapefile name from input dataset name.\n    - Removes .shp if present, appends suffix, and enforces .shp extension.\n    - For shapefiles, base = filename without extension.\n    - For feature classes inside a geodatabase, base = feature class name.\n    - Keeps name length reasonable (shapefile filename limit ~ 254 but DBF field limits can affect).\n    \"\"\"\n    base = os.path.splitext(os.path.basename(name))[0]\n    suffix = f\"_wk{target_wkid}\"\n    out_name = f\"{base}{suffix}.shp\"\n    # Optional: further sanitize to remove invalid characters\n    out_name = out_name.replace(\" \", \"_\")\n    return out_name\n\n# List feature classes in the input workspace (works for folder with .shp or a .gdb)\nfcs = arcpy.ListFeatureClasses()\n\n# If the workspace is a file geodatabase, ListFeatureClasses finds FCs in the root of gdb.\n# If you need to recurse through datasets/feature datasets, use arcpy.ListDatasets + change workspace or arcpy.da.Walk.\n\nif not fcs:\n    print(\"No feature classes found in workspace.\")\nelse:\n    print(f\"Found {len(fcs)} feature class(es). Beginning projection...\")\n\nfor fc in fcs:\n    try:\n        desc = arcpy.Describe(fc)\n        in_sr = desc.spatialReference\n        in_name = desc.name  # name of the dataset (with extension for shapefiles)\n        print(\"\\nProcessing:\", in_name)\n        print(\" - Input spatial reference:\", in_sr.name if in_sr else \"Unknown\")\n\n        # Check whether input already uses the target spatial reference (optional skip)\n        same_sr = False\n        try:\n            if getattr(in_sr, \"factoryCode\", None) and getattr(target_sr, \"factoryCode\", None):\n                same_sr = (int(in_sr.factoryCode) == int(target_sr.factoryCode))\n            else:\n                same_sr = (in_sr.name == target_sr.name)\n        except Exception:\n            same_sr = False\n\n        if same_sr:\n            print(\" - Skipping: dataset already in target spatial reference.\")\n            continue\n\n        # Build shapefile output path\n        out_name = safe_shapefile_name(in_name)\n        out_path = os.path.join(out_folder, out_name)\n        print(\" - Output path:\", out_path)\n\n        # If output already exists and overwriteOutput is True, it will be overwritten.\n        # Project_management expects: in_dataset, out_dataset, out_coor_system\n        arcpy.management.Project(fc, out_path, target_sr)\n        print(\" - Projection complete:\", out_path)\n\n    except arcpy.ExecuteError:\n        # ArcPy-specific error (tool failed), print tool messages\n        print(\"ArcPy error while processing\", fc)\n        print(arcpy.GetMessages(2))\n    except Exception as e:\n        # Any other Python error\n        print(\"Unexpected error while processing\", fc, \":\", str(e))\n\nprint(\"\\nBatch projection finished.\")\n\n\nFound 18 feature class(es). Beginning projection...\n\nProcessing: buildings.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\buildings_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\buildings_wk32644.shp\n\nProcessing: landuse.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\landuse_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\landuse_wk32644.shp\n\nProcessing: natural.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\natural_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\natural_wk32644.shp\n\nProcessing: places.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\places_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\places_wk32644.shp\n\nProcessing: points.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\points_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\points_wk32644.shp\n\nProcessing: railways.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\railways_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\railways_wk32644.shp\n\nProcessing: roads.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\roads_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\roads_wk32644.shp\n\nProcessing: roads_buffer.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\roads_buffer_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\roads_buffer_wk32644.shp\n\nProcessing: roads_buffer_1.shp\n - Input spatial reference: WGS_1984_UTM_Zone_44N\n - Skipping: dataset already in target spatial reference.\n\nProcessing: roads_buffer_alias_style.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\roads_buffer_alias_style_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\roads_buffer_alias_style_wk32644.shp\n\nProcessing: roads_buffer_clipped.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\roads_buffer_clipped_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\roads_buffer_clipped_wk32644.shp\n\nProcessing: roads_buffer_module_style.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\roads_buffer_module_style_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\roads_buffer_module_style_wk32644.shp\n\nProcessing: roads_final.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\roads_final_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\roads_final_wk32644.shp\n\nProcessing: roads_utm44n.shp\n - Input spatial reference: WGS_1984_UTM_Zone_44N\n - Skipping: dataset already in target spatial reference.\n\nProcessing: waterways.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\waterways_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\waterways_wk32644.shp\n\nProcessing: zones.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\zones_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\zones_wk32644.shp\n\nProcessing: zones_dissolved.shp\n - Input spatial reference: GCS_WGS_1984\n - Output path: D:\\GIS_Data\\OSM\\reprojected_shp\\zones_dissolved_wk32644.shp\n - Projection complete: D:\\GIS_Data\\OSM\\reprojected_shp\\zones_dissolved_wk32644.shp\n\nProcessing: zones_utm.shp\n - Input spatial reference: WGS_1984_UTM_Zone_44N\n - Skipping: dataset already in target spatial reference.\n\nBatch projection finished.",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Working with Spatial Data in ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter7_working_with_spatial_data.html#summary",
+    "href": "chapters/part_2/chapter7_working_with_spatial_data.html#summary",
+    "title": "7  Working with Spatial Data in ArcPy",
+    "section": "7.6 Summary",
+    "text": "7.6 Summary\nIn this chapter we covered:\n\nListing feature classes with ListFeatureClasses() (all or filtered by geometry type).\n\nInspecting dataset properties with Describe().\n\nAccessing geometry objects and their attributes (area, length, centroid).\n\nHandling multipart geometries (looping through parts and vertices).\n\nWorking with spatial references (checking, defining, projecting).",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Working with Spatial Data in ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter7_working_with_spatial_data.html#exercises",
+    "href": "chapters/part_2/chapter7_working_with_spatial_data.html#exercises",
+    "title": "7  Working with Spatial Data in ArcPy",
+    "section": "7.7 Exercises",
+    "text": "7.7 Exercises\n\nList only polygon feature classes in your workspace.\n\nUse Describe() to find the extent (bounding box) of a shapefile.\n\nWrite a script to print the centroid coordinates of all features in a polygon shapefile.\n\nDefine WGS 1984 (EPSG:4326) for a shapefile with unknown projection.\n\nProject a dataset from geographic coordinates to UTM Zone of your study area.",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Working with Spatial Data in ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter8_attribute_table_operations.html",
+    "href": "chapters/part_2/chapter8_attribute_table_operations.html",
+    "title": "8  Attribute Table Operations in ArcPy",
+    "section": "",
+    "text": "8.1 Reading Field Names\nIn this chapter, we will learn how to interact with attribute tables in ArcGIS using ArcPy.\nArcPy provides different types of cursors to read, update, and insert data into attribute tables.\nWe can list the fields of a feature class or shapefile using arcpy.ListFields().\nCode\nimport arcpy\n\n\n# Set the workspace where your data resides\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\nfc = \"roads.shp\"\n\nfields = arcpy.ListFields(fc)\nprint(\"Fields in\", fc, \":\")\nfor field in fields:\n    print(\"-\", field.name, \"(\", field.type, \")\")\n\n\nFields in roads.shp :\n- FID ( OID )\n- Shape ( Geometry )\n- osm_id ( Double )\n- name ( String )\n- ref ( String )\n- type ( String )\n- oneway ( SmallInteger )\n- bridge ( SmallInteger )\n- maxspeed ( SmallInteger )",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Attribute Table Operations in ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter8_attribute_table_operations.html#data-access-using-arcpy.da-cursors",
+    "href": "chapters/part_2/chapter8_attribute_table_operations.html#data-access-using-arcpy.da-cursors",
+    "title": "8  Attribute Table Operations in ArcPy",
+    "section": "8.2 Data Access Using arcpy.da Cursors",
+    "text": "8.2 Data Access Using arcpy.da Cursors\nThe modern, efficient way to read/write attributes and geometry is through the arcpy.da (Data Access) cursors: SearchCursor, UpdateCursor, and InsertCursor.\n\n8.2.1 Cursor Types\n\n\n\nCursor Type\nPurpose\n\n\n\n\nSearchCursor\nRead-only access to feature attributes/geometry\n\n\nUpdateCursor\nRead and update existing rows\n\n\nInsertCursor\nAdd new rows to a table/feature class\n\n\n\nThese replace older cursor methods and are significantly faster and more robust.\n\n\n\n8.2.2 Example: Read Geometry with SearchCursor\n\n\nCode\nimport arcpy\n\n# Set the workspace where your data resides\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\nfc = \"zones.shp\"\nwith arcpy.da.SearchCursor(fc, [\"SHAPE@\"]) as cursor:\n    for row in cursor:\n        geom = row[0]\n        print(\"Feature type:\", geom.type)\n        print(\"Area:\", geom.area)\n        print(\"Length:\", geom.length)\n        break  # Show only the first feature\n\n\nFeature type: polygon\nArea: 0.0002910697753912165\nLength: 0.07561464351089768\n\n\n\nNote: Use geometry tokens like SHAPE@XY, SHAPE@AREA, SHAPE@LENGTH for more efficient access.\n\n\n\n\n8.2.3 Practical: Count Features & Add Area Field\n\n\nCode\nimport arcpy\n\n# Set the workspace where your data resides\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\nfc = \"zones.shp\"\n\n# Count features\ncount = int(arcpy.management.GetCount(fc).getOutput(0))\nprint(\"Feature count:\", count)\n\n# Add a new field if not exists\nfields = [f.name for f in arcpy.ListFields(fc)]\nif \"Area_Ha\" not in fields:\n    arcpy.management.AddField(fc, \"Area_Ha\", \"DOUBLE\")\n\n# Update area in hectares\nwith arcpy.da.UpdateCursor(fc, [\"SHAPE@\", \"Area_Ha\"]) as cursor:\n    for row in cursor:\n        row[1] = row[0].area / 10000  # Convert m² to ha\n        cursor.updateRow(row)\n\nprint(\"Added/updated 'Area_Ha' field.\")\n\n\nFeature count: 4\nAdded/updated 'Area_Ha' field.\n\n\n\n\n\n8.2.4 Example: Insert Rows with InsertCursor\n\n\nCode\nimport arcpy\n\n# Set the workspace where your data resides\narcpy.env.workspace = r\"D:/GIS_Data/OSM/shape\"\n\nfc = \"places.shp\"\nfields = [\"SHAPE@XY\", \"Name\"]\n\nwith arcpy.da.InsertCursor(fc, fields) as cursor:\n    cursor.insertRow(((78.5548245, 17.4041281), \"NIGST\"))\n    cursor.insertRow(((78.5523354, 17.4047443), \"Everest Hostel\"))\n\nprint(\"Inserted points successfully.\")\n\n\nInserted points successfully.\n\n\n\n\n\nInsert Rows with InsertCursor\n\n\nUse the correct cursor type depending on your use case.",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Attribute Table Operations in ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter8_attribute_table_operations.html#summary",
+    "href": "chapters/part_2/chapter8_attribute_table_operations.html#summary",
+    "title": "8  Attribute Table Operations in ArcPy",
+    "section": "8.3 Summary",
+    "text": "8.3 Summary\nIn this chapter, we learned:\n\nHow to read field names using arcpy.ListFields().\n\nHow to use arcpy.da cursors:\n\nSearchCursor for reading attributes and geometry\nUpdateCursor for modifying attribute values\nInsertCursor for adding new features or rows\nGeometry tokens for efficient access\n\nA practical example of updating attribute values.",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Attribute Table Operations in ArcPy</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part_2/chapter8_attribute_table_operations.html#exercise",
+    "href": "chapters/part_2/chapter8_attribute_table_operations.html#exercise",
+    "title": "8  Attribute Table Operations in ArcPy",
+    "section": "8.4 Exercise",
+    "text": "8.4 Exercise\nTry the following tasks:\n\nUse a SearchCursor to print the first 10 rows of the attribute table.\n\nAdd a new field Perimeter and calculate polygon perimeters using UpdateCursor.\n\nUse an InsertCursor to add a new point feature with coordinates and a name attribute.",
+    "crumbs": [
+      "Part 2: Working with ArcPy",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Attribute Table Operations in ArcPy</span>"
     ]
   }
 ]

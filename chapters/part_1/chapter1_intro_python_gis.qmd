@@ -49,6 +49,7 @@ print("Hello, GIS World!")
 Python can also be used like a calculator:
 
 ```{python}
+
 a = 10
 b = 5
 sum_ab = a + b

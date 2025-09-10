@@ -112,6 +112,7 @@ for shp in shapefiles:
 ## Summary
 
 In this chapter, we learned:  
+
 - How to use **if-else conditions**.  
 - How to write **for** and **while** loops.  
 - How to iterate through **lists** and **dictionaries**.  

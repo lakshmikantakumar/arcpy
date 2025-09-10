@@ -122,6 +122,7 @@ safe_buffer("roads.shp", "roads_buffer.shp", "50 Meters")
 
 ## Common Exceptions Reference Table
 
+
 | Exception Type        | Description | GIS/ArcPy Example |
 |-----------------------|-------------|-------------------|
 | `FileNotFoundError`   | File or directory not found | Trying to open a missing shapefile |
@@ -142,6 +143,7 @@ safe_buffer("roads.shp", "roads_buffer.shp", "50 Meters")
 ## Summary
 
 In this chapter, we learned:  
+
 - What exceptions are and why they occur.  
 - How to use **try–except–finally** for error handling.  
 - How to raise exceptions deliberately.  
